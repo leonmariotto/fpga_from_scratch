@@ -1,0 +1,2453 @@
+{
+  "creator": "Next Generation Place and Route (Version nextpnr-0.10-108-g68c1acd8)",
+  "modules": {
+    "top": {
+      "settings": {
+        "route": "00000000000000000000000000000001",
+        "router/tmg_ripup": "0 ",
+        "router1/useEstimate": "1 ",
+        "router1/fullCleanupReroute": "1 ",
+        "router1/cleanupReroute": "1 ",
+        "router1/maxIterCnt": "200",
+        "place": "00000000000000000000000000000001",
+        "placer1/startTemp": "1.000000",
+        "placer1/minBelsForGridPick": "64",
+        "placer1/netShareWeight": "0.000000",
+        "placer1/constraintWeight": "10.000000",
+        "placerHeap/cellPlacementTimeout": "8",
+        "placerHeap/noCtrlSet": "0 ",
+        "placerHeap/netShareWeight": "0.000000",
+        "placerHeap/parallelRefine": "0 ",
+        "pack": "00000000000000000000000000000001",
+        "synth": "00000000000000000000000000000001",
+        "placerHeap/timingWeight": "10 ",
+        "placerHeap/criticalityExponent": "2",
+        "placerHeap/beta": "0.900000",
+        "placerHeap/alpha": "0.100000",
+        "seed": "1001110101011000001100111000001001111100101110010101011000011100",
+        "arch.type": " ",
+        "arch.name": "ARCHNAME",
+        "router": "default",
+        "placer": "heap",
+        "auto_freq": "00000000000000000000000000000000",
+        "timing_driven": "00000000000000000000000000000001",
+        "target_freq": "50000000.000000",
+        "timing/allowFail": "00000000000000000000000000000001",
+        "cst.filename": "blinky.cst",
+        "packer.partno": "GW5AST-LV138PG484AC1/I0",
+        "packer.chipdb": "GW5AST-138C",
+        "packer.arch": "himbaechel/gowin"
+      },
+      "attributes": {
+        "top": "00000000000000000000000000000001",
+        "src": "blinky.v:1.1-12.10"
+      },
+      "ports": {
+        "led_V13": {
+          "direction": "output",
+          "bits": [ 24162 ]
+        },
+        "clk": {
+          "direction": "input",
+          "bits": [ 24161 ]
+        }
+      },
+      "cells": {
+        "counter_DFF_Q_23_passthrough_lut$": {
+          "hide_name": 0,
+          "type": "LUT4",
+          "parameters": {
+            "INIT": "00000000000000001111111100000000"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000101",
+            "NEXTPNR_BEL": "X61Y107/LUT7"
+          },
+          "port_directions": {
+            "F": "output",
+            "I3": "input"
+          },
+          "connections": {
+            "F": [ 24370 ],
+            "I3": [ 24249 ]
+          }
+        },
+        "counter_DFF_Q_5_passthrough_lut$": {
+          "hide_name": 0,
+          "type": "LUT4",
+          "parameters": {
+            "INIT": "00000000000000001111111100000000"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000101",
+            "NEXTPNR_BEL": "X64Y107/LUT7"
+          },
+          "port_directions": {
+            "F": "output",
+            "I3": "input"
+          },
+          "connections": {
+            "F": [ 24368 ],
+            "I3": [ 24277 ]
+          }
+        },
+        "counter_DFF_Q_8_passthrough_lut$": {
+          "hide_name": 0,
+          "type": "LUT4",
+          "parameters": {
+            "INIT": "00000000000000001111111100000000"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000101",
+            "NEXTPNR_BEL": "X63Y107/LUT6"
+          },
+          "port_directions": {
+            "F": "output",
+            "I3": "input"
+          },
+          "connections": {
+            "F": [ 24366 ],
+            "I3": [ 24292 ]
+          }
+        },
+        "clk_IBUF_I_O_BUFG": {
+          "hide_name": 0,
+          "type": "BUFG",
+          "parameters": {
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X91Y108/BUFG0"
+          },
+          "port_directions": {
+            "O": "output",
+            "I": "input"
+          },
+          "connections": {
+            "O": [  ],
+            "I": [ 24354 ]
+          }
+        },
+        "spine_select$top": {
+          "hide_name": 0,
+          "type": "SPINE_SELECT",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "SPINE19.1": "input",
+            "SPINE19.0": "input"
+          },
+          "connections": {
+            "SPINE19.1": [ 24322 ],
+            "SPINE19.0": [ 24322 ]
+          }
+        },
+        "counter_DFF_Q_passthrough_lut$": {
+          "hide_name": 0,
+          "type": "LUT4",
+          "parameters": {
+            "INIT": "00000000000000001111111100000000"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000101",
+            "NEXTPNR_BEL": "X65Y107/LUT2"
+          },
+          "port_directions": {
+            "F": "output",
+            "I3": "input"
+          },
+          "connections": {
+            "F": [ 24372 ],
+            "I3": [ 24168 ]
+          }
+        },
+        "PINCFG": {
+          "hide_name": 0,
+          "type": "PINCFG",
+          "parameters": {
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000010",
+            "NEXTPNR_BEL": "X166Y108/PINCFG"
+          },
+          "port_directions": {
+            "SSPI": "input",
+            "UNK3_VCC": "input",
+            "UNK2_VCC": "input",
+            "UNK1_VCC": "input",
+            "UNK0_VCC": "input"
+          },
+          "connections": {
+            "SSPI": [ 24323 ],
+            "UNK3_VCC": [ 24323 ],
+            "UNK2_VCC": [ 24323 ],
+            "UNK1_VCC": [ 24323 ],
+            "UNK0_VCC": [ 24322 ]
+          }
+        },
+        "GSR": {
+          "hide_name": 0,
+          "type": "GSR",
+          "parameters": {
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000010",
+            "NEXTPNR_BEL": "X165Y108/GSR"
+          },
+          "port_directions": {
+            "GSRI": "input"
+          },
+          "connections": {
+            "GSRI": [ 24322 ]
+          }
+        },
+        "led_V13_OBUF_O_I_LUT1_F": {
+          "hide_name": 0,
+          "type": "LUT1",
+          "parameters": {
+            "INIT": "01"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X65Y107/LUT4",
+            "src": "/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_map.v:135.23-136.15",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I0": "input",
+            "F": "output"
+          },
+          "connections": {
+            "I0": [ 24169 ],
+            "F": [ 24305 ]
+          }
+        },
+        "led_V13_OBUF_O": {
+          "hide_name": 0,
+          "type": "OBUF",
+          "parameters": {
+            "NET_I": "NET",
+            "NET_O": "NET"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000101",
+            "NEXTPNR_BEL": "X65Y108/IOBA",
+            "src": "blinky.v:3.17-3.24",
+            "&IO_TYPE=LVCMOS33": "00000000000000000000000000000001",
+            "&PULL_MODE=UP": "00000000000000000000000000000001",
+            "&DRIVE=4": "00000000000000000000000000000001",
+            "&BANK_VCCIO=3.3": "00000000000000000000000000000001",
+            "keep": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "O": "output",
+            "I": "input"
+          },
+          "connections": {
+            "O": [ 24162 ],
+            "I": [ 24305 ]
+          }
+        },
+        "$PACKER_GND_DRV": {
+          "hide_name": 1,
+          "type": "GOWIN_GND",
+          "parameters": {
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000010",
+            "NEXTPNR_BEL": "X0Y0/GND"
+          },
+          "port_directions": {
+            "G": "output"
+          },
+          "connections": {
+            "G": [ 24323 ]
+          }
+        },
+        "$PACKER_VCC_DRV": {
+          "hide_name": 1,
+          "type": "GOWIN_VCC",
+          "parameters": {
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000010",
+            "NEXTPNR_BEL": "X0Y0/VCC"
+          },
+          "port_directions": {
+            "V": "output"
+          },
+          "connections": {
+            "V": [ 24322 ]
+          }
+        },
+        "counter_DFF_Q_D_ALU_SUM": {
+          "hide_name": 0,
+          "type": "ALU",
+          "parameters": {
+            "RAW_ALU_LUT": "00000000000000001100000011000000",
+            "ALU_MODE": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X65Y107/ALU1",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I2": "input",
+            "SUM": "output",
+            "I3": "input",
+            "I1": "input",
+            "I0": "input",
+            "COUT": "output",
+            "CIN": "input"
+          },
+          "connections": {
+            "I2": [ 24322 ],
+            "SUM": [ 24168 ],
+            "I3": [  ],
+            "I1": [ 24169 ],
+            "I0": [  ],
+            "COUT": [ 24301 ],
+            "CIN": [ 24229 ]
+          }
+        },
+        "counter_DFF_Q_9_D_ALU_SUM": {
+          "hide_name": 0,
+          "type": "ALU",
+          "parameters": {
+            "RAW_ALU_LUT": "00000000000000001100000011000000",
+            "ALU_MODE": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X63Y107/ALU4",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I2": "input",
+            "SUM": "output",
+            "I3": "input",
+            "I1": "input",
+            "I0": "input",
+            "COUT": "output",
+            "CIN": "input"
+          },
+          "connections": {
+            "I2": [ 24322 ],
+            "SUM": [ 24297 ],
+            "I3": [  ],
+            "I1": [ 24298 ],
+            "I0": [  ],
+            "COUT": [ 24295 ],
+            "CIN": [ 24179 ]
+          }
+        },
+        "counter_DFF_Q_9": {
+          "hide_name": 0,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X63Y107/DFF4",
+            "src": "blinky.v:7.5-8.35|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_map.v:13.6-13.47",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "Q": "output",
+            "D": "input",
+            "CLK": "input"
+          },
+          "connections": {
+            "Q": [ 24298 ],
+            "D": [ 24297 ],
+            "CLK": [ 24165 ]
+          }
+        },
+        "counter_DFF_Q_8_D_ALU_SUM": {
+          "hide_name": 0,
+          "type": "ALU",
+          "parameters": {
+            "RAW_ALU_LUT": "00000000000000001100000011000000",
+            "ALU_MODE": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X63Y107/ALU5",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I2": "input",
+            "SUM": "output",
+            "I3": "input",
+            "I1": "input",
+            "I0": "input",
+            "COUT": "output",
+            "CIN": "input"
+          },
+          "connections": {
+            "I2": [ 24322 ],
+            "SUM": [ 24292 ],
+            "I3": [  ],
+            "I1": [ 24293 ],
+            "I0": [  ],
+            "COUT": [ 24290 ],
+            "CIN": [ 24295 ]
+          }
+        },
+        "counter_DFF_Q_8": {
+          "hide_name": 0,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X63Y107/DFF6",
+            "src": "blinky.v:7.5-8.35|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_map.v:13.6-13.47",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "Q": "output",
+            "D": "input",
+            "CLK": "input"
+          },
+          "connections": {
+            "Q": [ 24293 ],
+            "D": [ 24366 ],
+            "CLK": [ 24165 ]
+          }
+        },
+        "counter_DFF_Q_7_D_ALU_SUM": {
+          "hide_name": 0,
+          "type": "ALU",
+          "parameters": {
+            "RAW_ALU_LUT": "00000000000000001100000011000000",
+            "ALU_MODE": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X64Y107/ALU0",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I2": "input",
+            "SUM": "output",
+            "I3": "input",
+            "I1": "input",
+            "I0": "input",
+            "COUT": "output",
+            "CIN": "input"
+          },
+          "connections": {
+            "I2": [ 24322 ],
+            "SUM": [ 24287 ],
+            "I3": [  ],
+            "I1": [ 24288 ],
+            "I0": [  ],
+            "COUT": [ 24285 ],
+            "CIN": [ 24290 ]
+          }
+        },
+        "counter_DFF_Q_7": {
+          "hide_name": 0,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X64Y107/DFF0",
+            "src": "blinky.v:7.5-8.35|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_map.v:13.6-13.47",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "Q": "output",
+            "D": "input",
+            "CLK": "input"
+          },
+          "connections": {
+            "Q": [ 24288 ],
+            "D": [ 24287 ],
+            "CLK": [ 24165 ]
+          }
+        },
+        "counter_DFF_Q_6_D_ALU_SUM": {
+          "hide_name": 0,
+          "type": "ALU",
+          "parameters": {
+            "RAW_ALU_LUT": "00000000000000001100000011000000",
+            "ALU_MODE": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X64Y107/ALU1",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I2": "input",
+            "SUM": "output",
+            "I3": "input",
+            "I1": "input",
+            "I0": "input",
+            "COUT": "output",
+            "CIN": "input"
+          },
+          "connections": {
+            "I2": [ 24322 ],
+            "SUM": [ 24282 ],
+            "I3": [  ],
+            "I1": [ 24283 ],
+            "I0": [  ],
+            "COUT": [ 24280 ],
+            "CIN": [ 24285 ]
+          }
+        },
+        "counter_DFF_Q_6": {
+          "hide_name": 0,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X64Y107/DFF1",
+            "src": "blinky.v:7.5-8.35|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_map.v:13.6-13.47",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "Q": "output",
+            "D": "input",
+            "CLK": "input"
+          },
+          "connections": {
+            "Q": [ 24283 ],
+            "D": [ 24282 ],
+            "CLK": [ 24165 ]
+          }
+        },
+        "counter_DFF_Q_5_D_ALU_SUM": {
+          "hide_name": 0,
+          "type": "ALU",
+          "parameters": {
+            "RAW_ALU_LUT": "00000000000000001100000011000000",
+            "ALU_MODE": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X64Y107/ALU2",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I2": "input",
+            "SUM": "output",
+            "I3": "input",
+            "I1": "input",
+            "I0": "input",
+            "COUT": "output",
+            "CIN": "input"
+          },
+          "connections": {
+            "I2": [ 24322 ],
+            "SUM": [ 24277 ],
+            "I3": [  ],
+            "I1": [ 24278 ],
+            "I0": [  ],
+            "COUT": [ 24275 ],
+            "CIN": [ 24280 ]
+          }
+        },
+        "counter_DFF_Q_5": {
+          "hide_name": 0,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X64Y107/DFF7",
+            "src": "blinky.v:7.5-8.35|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_map.v:13.6-13.47",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "Q": "output",
+            "D": "input",
+            "CLK": "input"
+          },
+          "connections": {
+            "Q": [ 24278 ],
+            "D": [ 24368 ],
+            "CLK": [ 24165 ]
+          }
+        },
+        "counter_DFF_Q_4_D_ALU_SUM": {
+          "hide_name": 0,
+          "type": "ALU",
+          "parameters": {
+            "RAW_ALU_LUT": "00000000000000001100000011000000",
+            "ALU_MODE": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X64Y107/ALU3",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I2": "input",
+            "SUM": "output",
+            "I3": "input",
+            "I1": "input",
+            "I0": "input",
+            "COUT": "output",
+            "CIN": "input"
+          },
+          "connections": {
+            "I2": [ 24322 ],
+            "SUM": [ 24272 ],
+            "I3": [  ],
+            "I1": [ 24273 ],
+            "I0": [  ],
+            "COUT": [ 24270 ],
+            "CIN": [ 24275 ]
+          }
+        },
+        "counter_DFF_Q_4": {
+          "hide_name": 0,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X64Y107/DFF3",
+            "src": "blinky.v:7.5-8.35|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_map.v:13.6-13.47",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "Q": "output",
+            "D": "input",
+            "CLK": "input"
+          },
+          "connections": {
+            "Q": [ 24273 ],
+            "D": [ 24272 ],
+            "CLK": [ 24165 ]
+          }
+        },
+        "counter_DFF_Q_3_D_ALU_SUM": {
+          "hide_name": 0,
+          "type": "ALU",
+          "parameters": {
+            "RAW_ALU_LUT": "00000000000000001100000011000000",
+            "ALU_MODE": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X64Y107/ALU4",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I2": "input",
+            "SUM": "output",
+            "I3": "input",
+            "I1": "input",
+            "I0": "input",
+            "COUT": "output",
+            "CIN": "input"
+          },
+          "connections": {
+            "I2": [ 24322 ],
+            "SUM": [ 24267 ],
+            "I3": [  ],
+            "I1": [ 24268 ],
+            "I0": [  ],
+            "COUT": [ 24265 ],
+            "CIN": [ 24270 ]
+          }
+        },
+        "counter_DFF_Q_3": {
+          "hide_name": 0,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X64Y107/DFF4",
+            "src": "blinky.v:7.5-8.35|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_map.v:13.6-13.47",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "Q": "output",
+            "D": "input",
+            "CLK": "input"
+          },
+          "connections": {
+            "Q": [ 24268 ],
+            "D": [ 24267 ],
+            "CLK": [ 24165 ]
+          }
+        },
+        "counter_DFF_Q_2_D_ALU_SUM": {
+          "hide_name": 0,
+          "type": "ALU",
+          "parameters": {
+            "RAW_ALU_LUT": "00000000000000001100000011000000",
+            "ALU_MODE": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X64Y107/ALU5",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I2": "input",
+            "SUM": "output",
+            "I3": "input",
+            "I1": "input",
+            "I0": "input",
+            "COUT": "output",
+            "CIN": "input"
+          },
+          "connections": {
+            "I2": [ 24322 ],
+            "SUM": [ 24231 ],
+            "I3": [  ],
+            "I1": [ 24232 ],
+            "I0": [  ],
+            "COUT": [ 24228 ],
+            "CIN": [ 24265 ]
+          }
+        },
+        "counter_DFF_Q_25_D_LUT1_F": {
+          "hide_name": 0,
+          "type": "LUT1",
+          "parameters": {
+            "INIT": "01"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X61Y107/LUT6",
+            "src": "/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_map.v:135.23-136.15",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I0": "input",
+            "F": "output"
+          },
+          "connections": {
+            "I0": [ 24259 ],
+            "F": [ 24262 ]
+          }
+        },
+        "counter_DFF_Q_25": {
+          "hide_name": 0,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X61Y107/DFF6",
+            "src": "blinky.v:7.5-8.35|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_map.v:13.6-13.47",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "Q": "output",
+            "D": "input",
+            "CLK": "input"
+          },
+          "connections": {
+            "Q": [ 24259 ],
+            "D": [ 24262 ],
+            "CLK": [ 24165 ]
+          }
+        },
+        "counter_DFF_Q_24_D_ALU_SUM_CIN_ALU_COUT": {
+          "hide_name": 0,
+          "type": "ALU",
+          "parameters": {
+            "RAW_ALU_LUT": "00000000000000000011000000111111",
+            "CIN_NETTYPE": "GND",
+            "ALU_MODE": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X61Y107/ALU0",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I2": "input",
+            "SUM": "output",
+            "I3": "input",
+            "I1": "input",
+            "I0": "input",
+            "COUT": "output",
+            "CIN": "input"
+          },
+          "connections": {
+            "I2": [ 24322 ],
+            "SUM": [ 24260 ],
+            "I3": [  ],
+            "I1": [ 24259 ],
+            "I0": [  ],
+            "COUT": [ 24257 ],
+            "CIN": [  ]
+          }
+        },
+        "counter_DFF_Q_24_D_ALU_SUM": {
+          "hide_name": 0,
+          "type": "ALU",
+          "parameters": {
+            "RAW_ALU_LUT": "00000000000000001100000011000000",
+            "ALU_MODE": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X61Y107/ALU1",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I2": "input",
+            "SUM": "output",
+            "I3": "input",
+            "I1": "input",
+            "I0": "input",
+            "COUT": "output",
+            "CIN": "input"
+          },
+          "connections": {
+            "I2": [ 24322 ],
+            "SUM": [ 24254 ],
+            "I3": [  ],
+            "I1": [ 24255 ],
+            "I0": [  ],
+            "COUT": [ 24252 ],
+            "CIN": [ 24257 ]
+          }
+        },
+        "counter_DFF_Q_24": {
+          "hide_name": 0,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X61Y107/DFF1",
+            "src": "blinky.v:7.5-8.35|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_map.v:13.6-13.47",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "Q": "output",
+            "D": "input",
+            "CLK": "input"
+          },
+          "connections": {
+            "Q": [ 24255 ],
+            "D": [ 24254 ],
+            "CLK": [ 24165 ]
+          }
+        },
+        "counter_DFF_Q_23_D_ALU_SUM": {
+          "hide_name": 0,
+          "type": "ALU",
+          "parameters": {
+            "RAW_ALU_LUT": "00000000000000001100000011000000",
+            "ALU_MODE": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X61Y107/ALU2",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I2": "input",
+            "SUM": "output",
+            "I3": "input",
+            "I1": "input",
+            "I0": "input",
+            "COUT": "output",
+            "CIN": "input"
+          },
+          "connections": {
+            "I2": [ 24322 ],
+            "SUM": [ 24249 ],
+            "I3": [  ],
+            "I1": [ 24250 ],
+            "I0": [  ],
+            "COUT": [ 24247 ],
+            "CIN": [ 24252 ]
+          }
+        },
+        "counter_DFF_Q_23": {
+          "hide_name": 0,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X61Y107/DFF7",
+            "src": "blinky.v:7.5-8.35|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_map.v:13.6-13.47",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "Q": "output",
+            "D": "input",
+            "CLK": "input"
+          },
+          "connections": {
+            "Q": [ 24250 ],
+            "D": [ 24370 ],
+            "CLK": [ 24165 ]
+          }
+        },
+        "counter_DFF_Q_22_D_ALU_SUM": {
+          "hide_name": 0,
+          "type": "ALU",
+          "parameters": {
+            "RAW_ALU_LUT": "00000000000000001100000011000000",
+            "ALU_MODE": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X61Y107/ALU3",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I2": "input",
+            "SUM": "output",
+            "I3": "input",
+            "I1": "input",
+            "I0": "input",
+            "COUT": "output",
+            "CIN": "input"
+          },
+          "connections": {
+            "I2": [ 24322 ],
+            "SUM": [ 24244 ],
+            "I3": [  ],
+            "I1": [ 24245 ],
+            "I0": [  ],
+            "COUT": [ 24242 ],
+            "CIN": [ 24247 ]
+          }
+        },
+        "counter_DFF_Q_22": {
+          "hide_name": 0,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X61Y107/DFF3",
+            "src": "blinky.v:7.5-8.35|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_map.v:13.6-13.47",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "Q": "output",
+            "D": "input",
+            "CLK": "input"
+          },
+          "connections": {
+            "Q": [ 24245 ],
+            "D": [ 24244 ],
+            "CLK": [ 24165 ]
+          }
+        },
+        "counter_DFF_Q_21_D_ALU_SUM": {
+          "hide_name": 0,
+          "type": "ALU",
+          "parameters": {
+            "RAW_ALU_LUT": "00000000000000001100000011000000",
+            "ALU_MODE": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X61Y107/ALU4",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I2": "input",
+            "SUM": "output",
+            "I3": "input",
+            "I1": "input",
+            "I0": "input",
+            "COUT": "output",
+            "CIN": "input"
+          },
+          "connections": {
+            "I2": [ 24322 ],
+            "SUM": [ 24239 ],
+            "I3": [  ],
+            "I1": [ 24240 ],
+            "I0": [  ],
+            "COUT": [ 24237 ],
+            "CIN": [ 24242 ]
+          }
+        },
+        "counter_DFF_Q_21": {
+          "hide_name": 0,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X61Y107/DFF4",
+            "src": "blinky.v:7.5-8.35|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_map.v:13.6-13.47",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "Q": "output",
+            "D": "input",
+            "CLK": "input"
+          },
+          "connections": {
+            "Q": [ 24240 ],
+            "D": [ 24239 ],
+            "CLK": [ 24165 ]
+          }
+        },
+        "counter_DFF_Q_20_D_ALU_SUM": {
+          "hide_name": 0,
+          "type": "ALU",
+          "parameters": {
+            "RAW_ALU_LUT": "00000000000000001100000011000000",
+            "ALU_MODE": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X61Y107/ALU5",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I2": "input",
+            "SUM": "output",
+            "I3": "input",
+            "I1": "input",
+            "I0": "input",
+            "COUT": "output",
+            "CIN": "input"
+          },
+          "connections": {
+            "I2": [ 24322 ],
+            "SUM": [ 24234 ],
+            "I3": [  ],
+            "I1": [ 24235 ],
+            "I0": [  ],
+            "COUT": [ 24226 ],
+            "CIN": [ 24237 ]
+          }
+        },
+        "counter_DFF_Q_20": {
+          "hide_name": 0,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X61Y107/DFF5",
+            "src": "blinky.v:7.5-8.35|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_map.v:13.6-13.47",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "Q": "output",
+            "D": "input",
+            "CLK": "input"
+          },
+          "connections": {
+            "Q": [ 24235 ],
+            "D": [ 24234 ],
+            "CLK": [ 24165 ]
+          }
+        },
+        "counter_DFF_Q_2": {
+          "hide_name": 0,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X64Y107/DFF5",
+            "src": "blinky.v:7.5-8.35|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_map.v:13.6-13.47",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "Q": "output",
+            "D": "input",
+            "CLK": "input"
+          },
+          "connections": {
+            "Q": [ 24232 ],
+            "D": [ 24231 ],
+            "CLK": [ 24165 ]
+          }
+        },
+        "counter_DFF_Q_1_D_ALU_SUM": {
+          "hide_name": 0,
+          "type": "ALU",
+          "parameters": {
+            "RAW_ALU_LUT": "00000000000000001100000011000000",
+            "ALU_MODE": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X65Y107/ALU0",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I2": "input",
+            "SUM": "output",
+            "I3": "input",
+            "I1": "input",
+            "I0": "input",
+            "COUT": "output",
+            "CIN": "input"
+          },
+          "connections": {
+            "I2": [ 24322 ],
+            "SUM": [ 24172 ],
+            "I3": [  ],
+            "I1": [ 24173 ],
+            "I0": [  ],
+            "COUT": [ 24229 ],
+            "CIN": [ 24228 ]
+          }
+        },
+        "counter_DFF_Q_19_D_ALU_SUM": {
+          "hide_name": 0,
+          "type": "ALU",
+          "parameters": {
+            "RAW_ALU_LUT": "00000000000000001100000011000000",
+            "ALU_MODE": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X62Y107/ALU0",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I2": "input",
+            "SUM": "output",
+            "I3": "input",
+            "I1": "input",
+            "I0": "input",
+            "COUT": "output",
+            "CIN": "input"
+          },
+          "connections": {
+            "I2": [ 24322 ],
+            "SUM": [ 24223 ],
+            "I3": [  ],
+            "I1": [ 24224 ],
+            "I0": [  ],
+            "COUT": [ 24221 ],
+            "CIN": [ 24226 ]
+          }
+        },
+        "counter_DFF_Q_19": {
+          "hide_name": 0,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X62Y107/DFF0",
+            "src": "blinky.v:7.5-8.35|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_map.v:13.6-13.47",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "Q": "output",
+            "D": "input",
+            "CLK": "input"
+          },
+          "connections": {
+            "Q": [ 24224 ],
+            "D": [ 24223 ],
+            "CLK": [ 24165 ]
+          }
+        },
+        "counter_DFF_Q_18_D_ALU_SUM": {
+          "hide_name": 0,
+          "type": "ALU",
+          "parameters": {
+            "RAW_ALU_LUT": "00000000000000001100000011000000",
+            "ALU_MODE": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X62Y107/ALU1",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I2": "input",
+            "SUM": "output",
+            "I3": "input",
+            "I1": "input",
+            "I0": "input",
+            "COUT": "output",
+            "CIN": "input"
+          },
+          "connections": {
+            "I2": [ 24322 ],
+            "SUM": [ 24218 ],
+            "I3": [  ],
+            "I1": [ 24219 ],
+            "I0": [  ],
+            "COUT": [ 24216 ],
+            "CIN": [ 24221 ]
+          }
+        },
+        "counter_DFF_Q_18": {
+          "hide_name": 0,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X62Y107/DFF1",
+            "src": "blinky.v:7.5-8.35|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_map.v:13.6-13.47",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "Q": "output",
+            "D": "input",
+            "CLK": "input"
+          },
+          "connections": {
+            "Q": [ 24219 ],
+            "D": [ 24218 ],
+            "CLK": [ 24165 ]
+          }
+        },
+        "counter_DFF_Q_17_D_ALU_SUM": {
+          "hide_name": 0,
+          "type": "ALU",
+          "parameters": {
+            "RAW_ALU_LUT": "00000000000000001100000011000000",
+            "ALU_MODE": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X62Y107/ALU2",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I2": "input",
+            "SUM": "output",
+            "I3": "input",
+            "I1": "input",
+            "I0": "input",
+            "COUT": "output",
+            "CIN": "input"
+          },
+          "connections": {
+            "I2": [ 24322 ],
+            "SUM": [ 24213 ],
+            "I3": [  ],
+            "I1": [ 24214 ],
+            "I0": [  ],
+            "COUT": [ 24211 ],
+            "CIN": [ 24216 ]
+          }
+        },
+        "counter_DFF_Q_17": {
+          "hide_name": 0,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X62Y107/DFF2",
+            "src": "blinky.v:7.5-8.35|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_map.v:13.6-13.47",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "Q": "output",
+            "D": "input",
+            "CLK": "input"
+          },
+          "connections": {
+            "Q": [ 24214 ],
+            "D": [ 24213 ],
+            "CLK": [ 24165 ]
+          }
+        },
+        "counter_DFF_Q_16_D_ALU_SUM": {
+          "hide_name": 0,
+          "type": "ALU",
+          "parameters": {
+            "RAW_ALU_LUT": "00000000000000001100000011000000",
+            "ALU_MODE": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X62Y107/ALU3",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I2": "input",
+            "SUM": "output",
+            "I3": "input",
+            "I1": "input",
+            "I0": "input",
+            "COUT": "output",
+            "CIN": "input"
+          },
+          "connections": {
+            "I2": [ 24322 ],
+            "SUM": [ 24208 ],
+            "I3": [  ],
+            "I1": [ 24209 ],
+            "I0": [  ],
+            "COUT": [ 24206 ],
+            "CIN": [ 24211 ]
+          }
+        },
+        "counter_DFF_Q_16": {
+          "hide_name": 0,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X62Y107/DFF3",
+            "src": "blinky.v:7.5-8.35|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_map.v:13.6-13.47",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "Q": "output",
+            "D": "input",
+            "CLK": "input"
+          },
+          "connections": {
+            "Q": [ 24209 ],
+            "D": [ 24208 ],
+            "CLK": [ 24165 ]
+          }
+        },
+        "counter_DFF_Q_15_D_ALU_SUM": {
+          "hide_name": 0,
+          "type": "ALU",
+          "parameters": {
+            "RAW_ALU_LUT": "00000000000000001100000011000000",
+            "ALU_MODE": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X62Y107/ALU4",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I2": "input",
+            "SUM": "output",
+            "I3": "input",
+            "I1": "input",
+            "I0": "input",
+            "COUT": "output",
+            "CIN": "input"
+          },
+          "connections": {
+            "I2": [ 24322 ],
+            "SUM": [ 24203 ],
+            "I3": [  ],
+            "I1": [ 24204 ],
+            "I0": [  ],
+            "COUT": [ 24201 ],
+            "CIN": [ 24206 ]
+          }
+        },
+        "counter_DFF_Q_15": {
+          "hide_name": 0,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X62Y107/DFF4",
+            "src": "blinky.v:7.5-8.35|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_map.v:13.6-13.47",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "Q": "output",
+            "D": "input",
+            "CLK": "input"
+          },
+          "connections": {
+            "Q": [ 24204 ],
+            "D": [ 24203 ],
+            "CLK": [ 24165 ]
+          }
+        },
+        "counter_DFF_Q_14_D_ALU_SUM": {
+          "hide_name": 0,
+          "type": "ALU",
+          "parameters": {
+            "RAW_ALU_LUT": "00000000000000001100000011000000",
+            "ALU_MODE": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X62Y107/ALU5",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I2": "input",
+            "SUM": "output",
+            "I3": "input",
+            "I1": "input",
+            "I0": "input",
+            "COUT": "output",
+            "CIN": "input"
+          },
+          "connections": {
+            "I2": [ 24322 ],
+            "SUM": [ 24198 ],
+            "I3": [  ],
+            "I1": [ 24199 ],
+            "I0": [  ],
+            "COUT": [ 24196 ],
+            "CIN": [ 24201 ]
+          }
+        },
+        "counter_DFF_Q_14": {
+          "hide_name": 0,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X62Y107/DFF5",
+            "src": "blinky.v:7.5-8.35|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_map.v:13.6-13.47",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "Q": "output",
+            "D": "input",
+            "CLK": "input"
+          },
+          "connections": {
+            "Q": [ 24199 ],
+            "D": [ 24198 ],
+            "CLK": [ 24165 ]
+          }
+        },
+        "counter_DFF_Q_13_D_ALU_SUM": {
+          "hide_name": 0,
+          "type": "ALU",
+          "parameters": {
+            "RAW_ALU_LUT": "00000000000000001100000011000000",
+            "ALU_MODE": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X63Y107/ALU0",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I2": "input",
+            "SUM": "output",
+            "I3": "input",
+            "I1": "input",
+            "I0": "input",
+            "COUT": "output",
+            "CIN": "input"
+          },
+          "connections": {
+            "I2": [ 24322 ],
+            "SUM": [ 24193 ],
+            "I3": [  ],
+            "I1": [ 24194 ],
+            "I0": [  ],
+            "COUT": [ 24191 ],
+            "CIN": [ 24196 ]
+          }
+        },
+        "counter_DFF_Q_13": {
+          "hide_name": 0,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X63Y107/DFF0",
+            "src": "blinky.v:7.5-8.35|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_map.v:13.6-13.47",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "Q": "output",
+            "D": "input",
+            "CLK": "input"
+          },
+          "connections": {
+            "Q": [ 24194 ],
+            "D": [ 24193 ],
+            "CLK": [ 24165 ]
+          }
+        },
+        "counter_DFF_Q_12_D_ALU_SUM": {
+          "hide_name": 0,
+          "type": "ALU",
+          "parameters": {
+            "RAW_ALU_LUT": "00000000000000001100000011000000",
+            "ALU_MODE": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X63Y107/ALU1",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I2": "input",
+            "SUM": "output",
+            "I3": "input",
+            "I1": "input",
+            "I0": "input",
+            "COUT": "output",
+            "CIN": "input"
+          },
+          "connections": {
+            "I2": [ 24322 ],
+            "SUM": [ 24188 ],
+            "I3": [  ],
+            "I1": [ 24189 ],
+            "I0": [  ],
+            "COUT": [ 24186 ],
+            "CIN": [ 24191 ]
+          }
+        },
+        "counter_DFF_Q_12": {
+          "hide_name": 0,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X63Y107/DFF1",
+            "src": "blinky.v:7.5-8.35|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_map.v:13.6-13.47",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "Q": "output",
+            "D": "input",
+            "CLK": "input"
+          },
+          "connections": {
+            "Q": [ 24189 ],
+            "D": [ 24188 ],
+            "CLK": [ 24165 ]
+          }
+        },
+        "counter_DFF_Q_11_D_ALU_SUM": {
+          "hide_name": 0,
+          "type": "ALU",
+          "parameters": {
+            "RAW_ALU_LUT": "00000000000000001100000011000000",
+            "ALU_MODE": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X63Y107/ALU2",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I2": "input",
+            "SUM": "output",
+            "I3": "input",
+            "I1": "input",
+            "I0": "input",
+            "COUT": "output",
+            "CIN": "input"
+          },
+          "connections": {
+            "I2": [ 24322 ],
+            "SUM": [ 24183 ],
+            "I3": [  ],
+            "I1": [ 24184 ],
+            "I0": [  ],
+            "COUT": [ 24178 ],
+            "CIN": [ 24186 ]
+          }
+        },
+        "counter_DFF_Q_11": {
+          "hide_name": 0,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X63Y107/DFF2",
+            "src": "blinky.v:7.5-8.35|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_map.v:13.6-13.47",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "Q": "output",
+            "D": "input",
+            "CLK": "input"
+          },
+          "connections": {
+            "Q": [ 24184 ],
+            "D": [ 24183 ],
+            "CLK": [ 24165 ]
+          }
+        },
+        "counter_DFF_Q_10_D_ALU_SUM": {
+          "hide_name": 0,
+          "type": "ALU",
+          "parameters": {
+            "RAW_ALU_LUT": "00000000000000001100000011000000",
+            "ALU_MODE": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X63Y107/ALU3",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "I2": "input",
+            "SUM": "output",
+            "I3": "input",
+            "I1": "input",
+            "I0": "input",
+            "COUT": "output",
+            "CIN": "input"
+          },
+          "connections": {
+            "I2": [ 24322 ],
+            "SUM": [ 24175 ],
+            "I3": [  ],
+            "I1": [ 24176 ],
+            "I0": [  ],
+            "COUT": [ 24179 ],
+            "CIN": [ 24178 ]
+          }
+        },
+        "counter_DFF_Q_10": {
+          "hide_name": 0,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X63Y107/DFF3",
+            "src": "blinky.v:7.5-8.35|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_map.v:13.6-13.47",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "Q": "output",
+            "D": "input",
+            "CLK": "input"
+          },
+          "connections": {
+            "Q": [ 24176 ],
+            "D": [ 24175 ],
+            "CLK": [ 24165 ]
+          }
+        },
+        "counter_DFF_Q_1": {
+          "hide_name": 0,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X65Y107/DFF0",
+            "src": "blinky.v:7.5-8.35|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_map.v:13.6-13.47",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "Q": "output",
+            "D": "input",
+            "CLK": "input"
+          },
+          "connections": {
+            "Q": [ 24173 ],
+            "D": [ 24172 ],
+            "CLK": [ 24165 ]
+          }
+        },
+        "counter_DFF_Q": {
+          "hide_name": 0,
+          "type": "DFF",
+          "parameters": {
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000001",
+            "NEXTPNR_BEL": "X65Y107/DFF2",
+            "src": "blinky.v:7.5-8.35|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_map.v:13.6-13.47",
+            "module_not_derived": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "Q": "output",
+            "D": "input",
+            "CLK": "input"
+          },
+          "connections": {
+            "Q": [ 24169 ],
+            "D": [ 24372 ],
+            "CLK": [ 24165 ]
+          }
+        },
+        "clk_IBUF_I": {
+          "hide_name": 0,
+          "type": "IBUF",
+          "parameters": {
+            "NET_I": "NET",
+            "NET_O": "NET"
+          },
+          "attributes": {
+            "BEL_STRENGTH": "00000000000000000000000000000101",
+            "NEXTPNR_BEL": "X103Y108/IOBB",
+            "src": "blinky.v:2.17-2.20",
+            "&IO_TYPE=LVCMOS33": "00000000000000000000000000000001",
+            "&PULL_MODE=NONE": "00000000000000000000000000000001",
+            "&BANK_VCCIO=3.3": "00000000000000000000000000000001",
+            "keep": "00000000000000000000000000000001"
+          },
+          "port_directions": {
+            "O": "output",
+            "I": "input"
+          },
+          "connections": {
+            "O": [ 24165 ],
+            "I": [ 24161 ]
+          }
+        }
+      },
+      "netnames": {
+        "counter_DFF_Q$conn$D": {
+          "hide_name": 0,
+          "bits": [ 24372 ] ,
+          "attributes": {
+            "ROUTING": "X65Y107/F2;;1;X65Y107/XD2;X65Y107/XD2/F2;1"
+          }
+        },
+        "counter_DFF_Q_23$conn$D": {
+          "hide_name": 0,
+          "bits": [ 24370 ] ,
+          "attributes": {
+            "ROUTING": "X61Y107/F7;;1;X61Y107/XD7;X61Y107/XD7/F7;1"
+          }
+        },
+        "counter_DFF_Q_5$conn$D": {
+          "hide_name": 0,
+          "bits": [ 24368 ] ,
+          "attributes": {
+            "ROUTING": "X64Y107/F7;;1;X64Y107/XD7;X64Y107/XD7/F7;1"
+          }
+        },
+        "counter_DFF_Q_8$conn$D": {
+          "hide_name": 0,
+          "bits": [ 24366 ] ,
+          "attributes": {
+            "ROUTING": "X63Y107/F6;;1;X63Y107/XD6;X63Y107/XD6/F6;1"
+          }
+        },
+        "clk_IBUF_I_O_BUFG$conn$I": {
+          "hide_name": 0,
+          "bits": [ 24354 ] ,
+          "attributes": {
+            "ROUTING": " "
+          }
+        },
+        "led_V13": {
+          "hide_name": 0,
+          "bits": [ 24162 ] ,
+          "attributes": {
+            "ROUTING": " ",
+            "src": "blinky.v:3.17-3.24"
+          }
+        },
+        "led_V13_OBUF_O_I": {
+          "hide_name": 0,
+          "bits": [ 24305 ] ,
+          "attributes": {
+            "ROUTING": "X65Y107/F4;;1;X65Y107/S130;X65Y107/S130/F4;1;X65Y108/A0;X65Y108/A0/S131;1"
+          }
+        },
+        "counter_DFF_Q_D_ALU_SUM_COUT": {
+          "hide_name": 0,
+          "bits": [ 24301 ] ,
+          "attributes": {
+            "ROUTING": " ",
+            "unused_bits": "0 ",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_sim.v:1033.25-1033.29",
+            "abc9_carry": "00000000000000000000000000000001"
+          }
+        },
+        "counter[16]": {
+          "hide_name": 0,
+          "bits": [ 24298 ] ,
+          "attributes": {
+            "ROUTING": "X63Y107/Q4;;1;X63Y107/W100;X63Y107/W100/Q4;1;X63Y107/B4;X63Y107/B4/W100;1",
+            "src": "blinky.v:5.16-5.23"
+          }
+        },
+        "counter_DFF_Q_9_D": {
+          "hide_name": 0,
+          "bits": [ 24297 ] ,
+          "attributes": {
+            "ROUTING": "X63Y107/F4;;1;X63Y107/XD4;X63Y107/XD4/F4;1"
+          }
+        },
+        "counter_DFF_Q_9_D_ALU_SUM_COUT": {
+          "hide_name": 0,
+          "bits": [ 24295 ] ,
+          "attributes": {
+            "ROUTING": "X63Y107/COUT4;;1",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_sim.v:1033.25-1033.29",
+            "abc9_carry": "00000000000000000000000000000001"
+          }
+        },
+        "counter[17]": {
+          "hide_name": 0,
+          "bits": [ 24293 ] ,
+          "attributes": {
+            "ROUTING": "X63Y107/Q6;;1;X63Y107/X03;X63Y107/X03/Q6;1;X63Y107/B5;X63Y107/B5/X03;1",
+            "src": "blinky.v:5.16-5.23"
+          }
+        },
+        "counter_DFF_Q_8_D": {
+          "hide_name": 0,
+          "bits": [ 24292 ] ,
+          "attributes": {
+            "ROUTING": "X63Y107/F5;;1;X63Y107/X04;X63Y107/X04/F5;1;X63Y107/D6;X63Y107/D6/X04;1"
+          }
+        },
+        "counter_DFF_Q_8_D_ALU_SUM_COUT": {
+          "hide_name": 0,
+          "bits": [ 24290 ] ,
+          "attributes": {
+            "ROUTING": "X64Y107/CIN0;;1",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_sim.v:1033.25-1033.29",
+            "abc9_carry": "00000000000000000000000000000001"
+          }
+        },
+        "counter[18]": {
+          "hide_name": 0,
+          "bits": [ 24288 ] ,
+          "attributes": {
+            "ROUTING": "X64Y107/Q0;;1;X64Y107/X05;X64Y107/X05/Q0;1;X64Y107/B0;X64Y107/B0/X05;1",
+            "src": "blinky.v:5.16-5.23"
+          }
+        },
+        "counter_DFF_Q_7_D": {
+          "hide_name": 0,
+          "bits": [ 24287 ] ,
+          "attributes": {
+            "ROUTING": "X64Y107/F0;;1;X64Y107/XD0;X64Y107/XD0/F0;1"
+          }
+        },
+        "counter_DFF_Q_7_D_ALU_SUM_COUT": {
+          "hide_name": 0,
+          "bits": [ 24285 ] ,
+          "attributes": {
+            "ROUTING": "X64Y107/COUT0;;1",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_sim.v:1033.25-1033.29",
+            "abc9_carry": "00000000000000000000000000000001"
+          }
+        },
+        "counter[19]": {
+          "hide_name": 0,
+          "bits": [ 24283 ] ,
+          "attributes": {
+            "ROUTING": "X64Y107/Q1;;1;X64Y107/B1;X64Y107/B1/Q1;1",
+            "src": "blinky.v:5.16-5.23"
+          }
+        },
+        "counter_DFF_Q_6_D": {
+          "hide_name": 0,
+          "bits": [ 24282 ] ,
+          "attributes": {
+            "ROUTING": "X64Y107/F1;;1;X64Y107/XD1;X64Y107/XD1/F1;1"
+          }
+        },
+        "counter_DFF_Q_6_D_ALU_SUM_COUT": {
+          "hide_name": 0,
+          "bits": [ 24280 ] ,
+          "attributes": {
+            "ROUTING": "X64Y107/COUT1;;1",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_sim.v:1033.25-1033.29",
+            "abc9_carry": "00000000000000000000000000000001"
+          }
+        },
+        "counter[20]": {
+          "hide_name": 0,
+          "bits": [ 24278 ] ,
+          "attributes": {
+            "ROUTING": "X64Y107/Q7;;1;X64Y107/X04;X64Y107/X04/Q7;1;X64Y107/B2;X64Y107/B2/X04;1",
+            "src": "blinky.v:5.16-5.23"
+          }
+        },
+        "counter_DFF_Q_5_D": {
+          "hide_name": 0,
+          "bits": [ 24277 ] ,
+          "attributes": {
+            "ROUTING": "X64Y107/F2;;1;X64Y107/D7;X64Y107/D7/F2;1"
+          }
+        },
+        "counter_DFF_Q_5_D_ALU_SUM_COUT": {
+          "hide_name": 0,
+          "bits": [ 24275 ] ,
+          "attributes": {
+            "ROUTING": "X64Y107/COUT2;;1",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_sim.v:1033.25-1033.29",
+            "abc9_carry": "00000000000000000000000000000001"
+          }
+        },
+        "counter[21]": {
+          "hide_name": 0,
+          "bits": [ 24273 ] ,
+          "attributes": {
+            "ROUTING": "X64Y107/Q3;;1;X64Y107/B3;X64Y107/B3/Q3;1",
+            "src": "blinky.v:5.16-5.23"
+          }
+        },
+        "counter_DFF_Q_4_D": {
+          "hide_name": 0,
+          "bits": [ 24272 ] ,
+          "attributes": {
+            "ROUTING": "X64Y107/F3;;1;X64Y107/XD3;X64Y107/XD3/F3;1"
+          }
+        },
+        "counter_DFF_Q_4_D_ALU_SUM_COUT": {
+          "hide_name": 0,
+          "bits": [ 24270 ] ,
+          "attributes": {
+            "ROUTING": "X64Y107/COUT3;;1",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_sim.v:1033.25-1033.29",
+            "abc9_carry": "00000000000000000000000000000001"
+          }
+        },
+        "counter[22]": {
+          "hide_name": 0,
+          "bits": [ 24268 ] ,
+          "attributes": {
+            "ROUTING": "X64Y107/Q4;;1;X64Y107/X03;X64Y107/X03/Q4;1;X64Y107/B4;X64Y107/B4/X03;1",
+            "src": "blinky.v:5.16-5.23"
+          }
+        },
+        "counter_DFF_Q_3_D": {
+          "hide_name": 0,
+          "bits": [ 24267 ] ,
+          "attributes": {
+            "ROUTING": "X64Y107/F4;;1;X64Y107/XD4;X64Y107/XD4/F4;1"
+          }
+        },
+        "counter_DFF_Q_3_D_ALU_SUM_COUT": {
+          "hide_name": 0,
+          "bits": [ 24265 ] ,
+          "attributes": {
+            "ROUTING": "X64Y107/COUT4;;1",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_sim.v:1033.25-1033.29",
+            "abc9_carry": "00000000000000000000000000000001"
+          }
+        },
+        "counter_DFF_Q_25_D": {
+          "hide_name": 0,
+          "bits": [ 24262 ] ,
+          "attributes": {
+            "ROUTING": "X61Y107/F6;;1;X61Y107/XD6;X61Y107/XD6/F6;1"
+          }
+        },
+        "counter_DFF_Q_24_D_ALU_SUM_CIN_ALU_COUT_SUM": {
+          "hide_name": 0,
+          "bits": [ 24260 ] ,
+          "attributes": {
+            "ROUTING": " ",
+            "unused_bits": "0 "
+          }
+        },
+        "counter[0]": {
+          "hide_name": 0,
+          "bits": [ 24259 ] ,
+          "attributes": {
+            "ROUTING": "X61Y107/X03;X61Y107/X03/Q6;1;X61Y107/A6;X61Y107/A6/X03;1;X61Y107/Q6;;1;X61Y107/X07;X61Y107/X07/Q6;1;X61Y107/B0;X61Y107/B0/X07;1",
+            "src": "blinky.v:5.16-5.23"
+          }
+        },
+        "counter_DFF_Q_24_D_ALU_SUM_CIN": {
+          "hide_name": 0,
+          "bits": [ 24257 ] ,
+          "attributes": {
+            "ROUTING": "X61Y107/COUT0;;1",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_sim.v:1033.25-1033.29",
+            "abc9_carry": "00000000000000000000000000000001"
+          }
+        },
+        "counter[1]": {
+          "hide_name": 0,
+          "bits": [ 24255 ] ,
+          "attributes": {
+            "ROUTING": "X61Y107/Q1;;1;X61Y107/B1;X61Y107/B1/Q1;1",
+            "src": "blinky.v:5.16-5.23"
+          }
+        },
+        "counter_DFF_Q_24_D": {
+          "hide_name": 0,
+          "bits": [ 24254 ] ,
+          "attributes": {
+            "ROUTING": "X61Y107/F1;;1;X61Y107/XD1;X61Y107/XD1/F1;1"
+          }
+        },
+        "counter_DFF_Q_24_D_ALU_SUM_COUT": {
+          "hide_name": 0,
+          "bits": [ 24252 ] ,
+          "attributes": {
+            "ROUTING": "X61Y107/COUT1;;1",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_sim.v:1033.25-1033.29",
+            "abc9_carry": "00000000000000000000000000000001"
+          }
+        },
+        "counter[2]": {
+          "hide_name": 0,
+          "bits": [ 24250 ] ,
+          "attributes": {
+            "ROUTING": "X61Y107/Q7;;1;X61Y107/X04;X61Y107/X04/Q7;1;X61Y107/B2;X61Y107/B2/X04;1",
+            "src": "blinky.v:5.16-5.23"
+          }
+        },
+        "counter_DFF_Q_23_D": {
+          "hide_name": 0,
+          "bits": [ 24249 ] ,
+          "attributes": {
+            "ROUTING": "X61Y107/F2;;1;X61Y107/D7;X61Y107/D7/F2;1"
+          }
+        },
+        "counter_DFF_Q_23_D_ALU_SUM_COUT": {
+          "hide_name": 0,
+          "bits": [ 24247 ] ,
+          "attributes": {
+            "ROUTING": "X61Y107/COUT2;;1",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_sim.v:1033.25-1033.29",
+            "abc9_carry": "00000000000000000000000000000001"
+          }
+        },
+        "counter[3]": {
+          "hide_name": 0,
+          "bits": [ 24245 ] ,
+          "attributes": {
+            "ROUTING": "X61Y107/Q3;;1;X61Y107/B3;X61Y107/B3/Q3;1",
+            "src": "blinky.v:5.16-5.23"
+          }
+        },
+        "counter_DFF_Q_22_D": {
+          "hide_name": 0,
+          "bits": [ 24244 ] ,
+          "attributes": {
+            "ROUTING": "X61Y107/F3;;1;X61Y107/XD3;X61Y107/XD3/F3;1"
+          }
+        },
+        "counter_DFF_Q_22_D_ALU_SUM_COUT": {
+          "hide_name": 0,
+          "bits": [ 24242 ] ,
+          "attributes": {
+            "ROUTING": "X61Y107/COUT3;;1",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_sim.v:1033.25-1033.29",
+            "abc9_carry": "00000000000000000000000000000001"
+          }
+        },
+        "counter[4]": {
+          "hide_name": 0,
+          "bits": [ 24240 ] ,
+          "attributes": {
+            "ROUTING": "X61Y107/Q4;;1;X61Y107/W100;X61Y107/W100/Q4;1;X61Y107/B4;X61Y107/B4/W100;1",
+            "src": "blinky.v:5.16-5.23"
+          }
+        },
+        "counter_DFF_Q_21_D": {
+          "hide_name": 0,
+          "bits": [ 24239 ] ,
+          "attributes": {
+            "ROUTING": "X61Y107/F4;;1;X61Y107/XD4;X61Y107/XD4/F4;1"
+          }
+        },
+        "counter_DFF_Q_21_D_ALU_SUM_COUT": {
+          "hide_name": 0,
+          "bits": [ 24237 ] ,
+          "attributes": {
+            "ROUTING": "X61Y107/COUT4;;1",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_sim.v:1033.25-1033.29",
+            "abc9_carry": "00000000000000000000000000000001"
+          }
+        },
+        "counter[5]": {
+          "hide_name": 0,
+          "bits": [ 24235 ] ,
+          "attributes": {
+            "ROUTING": "X61Y107/Q5;;1;X61Y107/X08;X61Y107/X08/Q5;1;X61Y107/B5;X61Y107/B5/X08;1",
+            "src": "blinky.v:5.16-5.23"
+          }
+        },
+        "counter_DFF_Q_20_D": {
+          "hide_name": 0,
+          "bits": [ 24234 ] ,
+          "attributes": {
+            "ROUTING": "X61Y107/F5;;1;X61Y107/XD5;X61Y107/XD5/F5;1"
+          }
+        },
+        "counter[23]": {
+          "hide_name": 0,
+          "bits": [ 24232 ] ,
+          "attributes": {
+            "ROUTING": "X64Y107/Q5;;1;X64Y107/X08;X64Y107/X08/Q5;1;X64Y107/B5;X64Y107/B5/X08;1",
+            "src": "blinky.v:5.16-5.23"
+          }
+        },
+        "counter_DFF_Q_2_D": {
+          "hide_name": 0,
+          "bits": [ 24231 ] ,
+          "attributes": {
+            "ROUTING": "X64Y107/F5;;1;X64Y107/XD5;X64Y107/XD5/F5;1"
+          }
+        },
+        "counter_DFF_Q_1_D_ALU_SUM_COUT": {
+          "hide_name": 0,
+          "bits": [ 24229 ] ,
+          "attributes": {
+            "ROUTING": "X65Y107/COUT0;;1",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_sim.v:1033.25-1033.29",
+            "abc9_carry": "00000000000000000000000000000001"
+          }
+        },
+        "counter_DFF_Q_2_D_ALU_SUM_COUT": {
+          "hide_name": 0,
+          "bits": [ 24228 ] ,
+          "attributes": {
+            "ROUTING": "X65Y107/CIN0;;1",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_sim.v:1033.25-1033.29",
+            "abc9_carry": "00000000000000000000000000000001"
+          }
+        },
+        "counter_DFF_Q_20_D_ALU_SUM_COUT": {
+          "hide_name": 0,
+          "bits": [ 24226 ] ,
+          "attributes": {
+            "ROUTING": "X62Y107/CIN0;;1",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_sim.v:1033.25-1033.29",
+            "abc9_carry": "00000000000000000000000000000001"
+          }
+        },
+        "counter[6]": {
+          "hide_name": 0,
+          "bits": [ 24224 ] ,
+          "attributes": {
+            "ROUTING": "X62Y107/Q0;;1;X62Y107/X05;X62Y107/X05/Q0;1;X62Y107/B0;X62Y107/B0/X05;1",
+            "src": "blinky.v:5.16-5.23"
+          }
+        },
+        "counter_DFF_Q_19_D": {
+          "hide_name": 0,
+          "bits": [ 24223 ] ,
+          "attributes": {
+            "ROUTING": "X62Y107/F0;;1;X62Y107/XD0;X62Y107/XD0/F0;1"
+          }
+        },
+        "counter_DFF_Q_19_D_ALU_SUM_COUT": {
+          "hide_name": 0,
+          "bits": [ 24221 ] ,
+          "attributes": {
+            "ROUTING": "X62Y107/COUT0;;1",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_sim.v:1033.25-1033.29",
+            "abc9_carry": "00000000000000000000000000000001"
+          }
+        },
+        "counter[7]": {
+          "hide_name": 0,
+          "bits": [ 24219 ] ,
+          "attributes": {
+            "ROUTING": "X62Y107/Q1;;1;X62Y107/B1;X62Y107/B1/Q1;1",
+            "src": "blinky.v:5.16-5.23"
+          }
+        },
+        "counter_DFF_Q_18_D": {
+          "hide_name": 0,
+          "bits": [ 24218 ] ,
+          "attributes": {
+            "ROUTING": "X62Y107/F1;;1;X62Y107/XD1;X62Y107/XD1/F1;1"
+          }
+        },
+        "counter_DFF_Q_18_D_ALU_SUM_COUT": {
+          "hide_name": 0,
+          "bits": [ 24216 ] ,
+          "attributes": {
+            "ROUTING": "X62Y107/COUT1;;1",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_sim.v:1033.25-1033.29",
+            "abc9_carry": "00000000000000000000000000000001"
+          }
+        },
+        "counter[8]": {
+          "hide_name": 0,
+          "bits": [ 24214 ] ,
+          "attributes": {
+            "ROUTING": "X62Y107/Q2;;1;X62Y107/X01;X62Y107/X01/Q2;1;X62Y107/B2;X62Y107/B2/X01;1",
+            "src": "blinky.v:5.16-5.23"
+          }
+        },
+        "counter_DFF_Q_17_D": {
+          "hide_name": 0,
+          "bits": [ 24213 ] ,
+          "attributes": {
+            "ROUTING": "X62Y107/F2;;1;X62Y107/XD2;X62Y107/XD2/F2;1"
+          }
+        },
+        "counter_DFF_Q_17_D_ALU_SUM_COUT": {
+          "hide_name": 0,
+          "bits": [ 24211 ] ,
+          "attributes": {
+            "ROUTING": "X62Y107/COUT2;;1",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_sim.v:1033.25-1033.29",
+            "abc9_carry": "00000000000000000000000000000001"
+          }
+        },
+        "counter[9]": {
+          "hide_name": 0,
+          "bits": [ 24209 ] ,
+          "attributes": {
+            "ROUTING": "X62Y107/Q3;;1;X62Y107/B3;X62Y107/B3/Q3;1",
+            "src": "blinky.v:5.16-5.23"
+          }
+        },
+        "counter_DFF_Q_16_D": {
+          "hide_name": 0,
+          "bits": [ 24208 ] ,
+          "attributes": {
+            "ROUTING": "X62Y107/F3;;1;X62Y107/XD3;X62Y107/XD3/F3;1"
+          }
+        },
+        "counter_DFF_Q_16_D_ALU_SUM_COUT": {
+          "hide_name": 0,
+          "bits": [ 24206 ] ,
+          "attributes": {
+            "ROUTING": "X62Y107/COUT3;;1",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_sim.v:1033.25-1033.29",
+            "abc9_carry": "00000000000000000000000000000001"
+          }
+        },
+        "counter[10]": {
+          "hide_name": 0,
+          "bits": [ 24204 ] ,
+          "attributes": {
+            "ROUTING": "X62Y107/Q4;;1;X62Y107/X03;X62Y107/X03/Q4;1;X62Y107/B4;X62Y107/B4/X03;1",
+            "src": "blinky.v:5.16-5.23"
+          }
+        },
+        "counter_DFF_Q_15_D": {
+          "hide_name": 0,
+          "bits": [ 24203 ] ,
+          "attributes": {
+            "ROUTING": "X62Y107/F4;;1;X62Y107/XD4;X62Y107/XD4/F4;1"
+          }
+        },
+        "counter_DFF_Q_15_D_ALU_SUM_COUT": {
+          "hide_name": 0,
+          "bits": [ 24201 ] ,
+          "attributes": {
+            "ROUTING": "X62Y107/COUT4;;1",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_sim.v:1033.25-1033.29",
+            "abc9_carry": "00000000000000000000000000000001"
+          }
+        },
+        "counter[11]": {
+          "hide_name": 0,
+          "bits": [ 24199 ] ,
+          "attributes": {
+            "ROUTING": "X62Y107/Q5;;1;X62Y107/X08;X62Y107/X08/Q5;1;X62Y107/B5;X62Y107/B5/X08;1",
+            "src": "blinky.v:5.16-5.23"
+          }
+        },
+        "counter_DFF_Q_14_D": {
+          "hide_name": 0,
+          "bits": [ 24198 ] ,
+          "attributes": {
+            "ROUTING": "X62Y107/F5;;1;X62Y107/XD5;X62Y107/XD5/F5;1"
+          }
+        },
+        "counter_DFF_Q_14_D_ALU_SUM_COUT": {
+          "hide_name": 0,
+          "bits": [ 24196 ] ,
+          "attributes": {
+            "ROUTING": "X63Y107/CIN0;;1",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_sim.v:1033.25-1033.29",
+            "abc9_carry": "00000000000000000000000000000001"
+          }
+        },
+        "counter[12]": {
+          "hide_name": 0,
+          "bits": [ 24194 ] ,
+          "attributes": {
+            "ROUTING": "X63Y107/Q0;;1;X63Y107/S100;X63Y107/S100/Q0;1;X63Y107/B0;X63Y107/B0/S100;1",
+            "src": "blinky.v:5.16-5.23"
+          }
+        },
+        "counter_DFF_Q_13_D": {
+          "hide_name": 0,
+          "bits": [ 24193 ] ,
+          "attributes": {
+            "ROUTING": "X63Y107/F0;;1;X63Y107/XD0;X63Y107/XD0/F0;1"
+          }
+        },
+        "counter_DFF_Q_13_D_ALU_SUM_COUT": {
+          "hide_name": 0,
+          "bits": [ 24191 ] ,
+          "attributes": {
+            "ROUTING": "X63Y107/COUT0;;1",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_sim.v:1033.25-1033.29",
+            "abc9_carry": "00000000000000000000000000000001"
+          }
+        },
+        "counter[13]": {
+          "hide_name": 0,
+          "bits": [ 24189 ] ,
+          "attributes": {
+            "ROUTING": "X63Y107/Q1;;1;X63Y107/B1;X63Y107/B1/Q1;1",
+            "src": "blinky.v:5.16-5.23"
+          }
+        },
+        "counter_DFF_Q_12_D": {
+          "hide_name": 0,
+          "bits": [ 24188 ] ,
+          "attributes": {
+            "ROUTING": "X63Y107/F1;;1;X63Y107/XD1;X63Y107/XD1/F1;1"
+          }
+        },
+        "counter_DFF_Q_12_D_ALU_SUM_COUT": {
+          "hide_name": 0,
+          "bits": [ 24186 ] ,
+          "attributes": {
+            "ROUTING": "X63Y107/COUT1;;1",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_sim.v:1033.25-1033.29",
+            "abc9_carry": "00000000000000000000000000000001"
+          }
+        },
+        "counter[14]": {
+          "hide_name": 0,
+          "bits": [ 24184 ] ,
+          "attributes": {
+            "ROUTING": "X63Y107/Q2;;1;X63Y107/X01;X63Y107/X01/Q2;1;X63Y107/B2;X63Y107/B2/X01;1",
+            "src": "blinky.v:5.16-5.23"
+          }
+        },
+        "counter_DFF_Q_11_D": {
+          "hide_name": 0,
+          "bits": [ 24183 ] ,
+          "attributes": {
+            "ROUTING": "X63Y107/F2;;1;X63Y107/XD2;X63Y107/XD2/F2;1"
+          }
+        },
+        "$PACKER_GND": {
+          "hide_name": 1,
+          "bits": [ 24323 ] ,
+          "attributes": {
+            "ROUTING": "X166Y108/D5;X166Y108/D5/X04;1;X166Y108/X04;X166Y108/X04/W272;1;X168Y108/W270;X168Y108/W270/VSS;1;X168Y108/VSS;;1;X167Y108/C0;X167Y108/C0/W230;1;X167Y108/W230;X167Y108/W230/VSS;1;X167Y108/VSS;;1;X166Y108/D7;X166Y108/D7/X02;1;X166Y108/X02;X166Y108/X02/S231;1;X166Y107/S230;X166Y107/S230/VSS;1;X166Y107/VSS;;1;X166Y108/D6;X166Y108/D6/N270;1;X166Y108/N270;X166Y108/N270/VSS;1;X166Y108/VSS;;1"
+          }
+        },
+        "$PACKER_VCC": {
+          "hide_name": 1,
+          "bits": [ 24322 ] ,
+          "attributes": {
+            "ROUTING": "X61Y107/C1;X61Y107/C1/E262;1;X59Y107/E260;X59Y107/E260/VCC;1;X59Y107/VCC;;1;X63Y107/C2;X63Y107/C2/W261;1;X64Y107/W260;X64Y107/W260/VCC;1;X65Y107/C0;X65Y107/C0/S241;1;X65Y106/S240;X65Y106/S240/VCC;1;X65Y106/VCC;;1;X62Y107/C4;X62Y107/C4/S201;1;X62Y106/S200;X62Y106/S200/VCC;1;X62Y107/C2;X62Y107/C2/W242;1;X64Y107/W240;X64Y107/W240/VCC;1;X166Y108/B5;X166Y108/B5/N240;1;X166Y108/N240;X166Y108/N240/VCC;1;X166Y108/VCC;;1;X62Y107/C1;X62Y107/C1/N261;1;X62Y108/N260;X62Y108/N260/VCC;1;X62Y108/VCC;;1;X64Y107/C5;X64Y107/C5/E261;1;X63Y107/E260;X63Y107/E260/VCC;1;X64Y107/C0;X64Y107/C0/S242;1;X64Y105/S240;X64Y105/S240/VCC;1;X64Y105/VCC;;1;X64Y107/C1;X64Y107/C1/S241;1;X64Y106/S240;X64Y106/S240/VCC;1;X64Y106/VCC;;1;X61Y107/C4;X61Y107/C4/E241;1;X60Y107/E240;X60Y107/E240/VCC;1;X60Y107/VCC;;1;X62Y107/C5;X62Y107/C5/S202;1;X62Y105/S200;X62Y105/S200/VCC;1;X62Y105/VCC;;1;X63Y107/C5;X63Y107/C5/N202;1;X63Y108/S200;X63Y108/S200/VCC;1;X63Y108/VCC;;1;X63Y107/C0;X63Y107/C0/S261;1;X63Y106/S260;X63Y106/S260/VCC;1;X63Y106/VCC;;1;X65Y107/C1;X65Y107/C1/W242;1;X67Y107/W240;X67Y107/W240/VCC;1;X67Y107/VCC;;1;X61Y107/C0;X61Y107/C0/S241;1;X61Y106/S240;X61Y106/S240/VCC;1;X61Y106/VCC;;1;X61Y107/C2;X61Y107/C2/W220;1;X61Y107/W220;X61Y107/W220/VCC;1;X61Y107/VCC;;1;X64Y107/C3;X64Y107/C3/N262;1;X64Y108/S260;X64Y108/S260/VCC;1;X64Y108/VCC;;1;X62Y107/C3;X62Y107/C3/W241;1;X63Y107/W240;X63Y107/W240/VCC;1;X63Y107/VCC;;1;X64Y107/C2;X64Y107/C2/W242;1;X66Y107/W240;X66Y107/W240/VCC;1;X66Y107/VCC;;1;X63Y107/C3;X63Y107/C3/S262;1;X63Y105/S260;X63Y105/S260/VCC;1;X63Y105/VCC;;1;X63Y107/C1;X63Y107/C1/W262;1;X65Y107/W260;X65Y107/W260/VCC;1;X65Y107/VCC;;1;X62Y107/C0;X62Y107/C0/S261;1;X62Y106/S260;X62Y106/S260/VCC;1;X62Y106/VCC;;1;X61Y107/C3;X61Y107/C3/N262;1;X61Y108/S260;X61Y108/S260/VCC;1;X61Y108/VCC;;1;X63Y107/C4;X63Y107/C4/E261;1;X62Y107/E260;X62Y107/E260/VCC;1;X62Y107/VCC;;1;X165Y108/D7;X165Y108/D7/S242;1;X165Y106/S240;X165Y106/S240/VCC;1;X165Y106/VCC;;1;X61Y107/C5;X61Y107/C5/S202;1;X61Y105/S200;X61Y105/S200/VCC;1;X61Y105/VCC;;1;X94Y27/CLK1;X94Y27/CLK1/S241;1;X94Y26/S240;X94Y26/S240/VCC;1;X94Y26/VCC;;1;X94Y27/CLK0;X94Y27/CLK0/VCC;1;X94Y27/VCC;;1;X64Y107/C4;X64Y107/C4/S220;1;X64Y107/S220;X64Y107/S220/VCC;1;X64Y107/VCC;;1"
+          }
+        },
+        "counter_DFF_Q_10_D_ALU_SUM_COUT": {
+          "hide_name": 0,
+          "bits": [ 24179 ] ,
+          "attributes": {
+            "ROUTING": "X63Y107/COUT3;;1",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_sim.v:1033.25-1033.29",
+            "abc9_carry": "00000000000000000000000000000001"
+          }
+        },
+        "counter_DFF_Q_11_D_ALU_SUM_COUT": {
+          "hide_name": 0,
+          "bits": [ 24178 ] ,
+          "attributes": {
+            "ROUTING": "X63Y107/COUT2;;1",
+            "src": "blinky.v:8.20-8.34|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/arith_map.v:57.7-63.5|/home/leon/workspace/fpga/oss-cad-suite/lib/../share/yosys/gowin/cells_sim.v:1033.25-1033.29",
+            "abc9_carry": "00000000000000000000000000000001"
+          }
+        },
+        "counter[15]": {
+          "hide_name": 0,
+          "bits": [ 24176 ] ,
+          "attributes": {
+            "ROUTING": "X63Y107/Q3;;1;X63Y107/B3;X63Y107/B3/Q3;1",
+            "src": "blinky.v:5.16-5.23"
+          }
+        },
+        "counter_DFF_Q_10_D": {
+          "hide_name": 0,
+          "bits": [ 24175 ] ,
+          "attributes": {
+            "ROUTING": "X63Y107/F3;;1;X63Y107/XD3;X63Y107/XD3/F3;1"
+          }
+        },
+        "counter[24]": {
+          "hide_name": 0,
+          "bits": [ 24173 ] ,
+          "attributes": {
+            "ROUTING": "X65Y107/Q0;;1;X65Y107/S100;X65Y107/S100/Q0;1;X65Y107/B0;X65Y107/B0/S100;1",
+            "src": "blinky.v:5.16-5.23"
+          }
+        },
+        "counter_DFF_Q_1_D": {
+          "hide_name": 0,
+          "bits": [ 24172 ] ,
+          "attributes": {
+            "ROUTING": "X65Y107/F0;;1;X65Y107/XD0;X65Y107/XD0/F0;1"
+          }
+        },
+        "counter[25]": {
+          "hide_name": 0,
+          "bits": [ 24169 ] ,
+          "attributes": {
+            "ROUTING": "X65Y107/A4;X65Y107/A4/X05;1;X65Y107/Q2;;1;X65Y107/X05;X65Y107/X05/Q2;1;X65Y107/B1;X65Y107/B1/X05;1",
+            "src": "blinky.v:5.16-5.23"
+          }
+        },
+        "counter_DFF_Q_D": {
+          "hide_name": 0,
+          "bits": [ 24168 ] ,
+          "attributes": {
+            "ROUTING": "X65Y107/F1;;1;X65Y107/X06;X65Y107/X06/F1;1;X65Y107/D2;X65Y107/D2/X06;1"
+          }
+        },
+        "clk_IBUF_I_O": {
+          "hide_name": 0,
+          "bits": [ 24165 ] ,
+          "attributes": {
+            "ROUTING": "X104Y108/EW10;X104Y108/EW10/Q6;5;X103Y108/W810;X103Y108/W810/W111;5;X95Y108/W820;X95Y108/W820/W818;5;X91Y108/S240;X91Y108/S240/W824;5;X91Y108/CLK1;X91Y108/CLK1/N241;5;X104Y108/Q6;;5;X63Y107/CLK2;X63Y107/CLK2/GB00;5;X64Y107/CLK0;X64Y107/CLK0/GB00;5;X64Y107/CLK1;X64Y107/CLK1/GB00;5;X61Y107/CLK0;X61Y107/CLK0/GB00;5;X61Y107/CLK1;X61Y107/CLK1/GB00;5;X61Y107/CLK2;X61Y107/CLK2/GB00;5;X64Y107/CLK2;X64Y107/CLK2/GB00;5;X62Y107/CLK0;X62Y107/CLK0/GB00;5;X62Y107/CLK1;X62Y107/CLK1/GB00;5;X62Y107/CLK2;X62Y107/CLK2/GB00;5;X63Y107/CLK0;X63Y107/CLK0/GB00;5;X62Y107/GT00;X62Y100/GT00/SPINE0;5;X63Y107/GB00;X62Y107/GBO0/GT00;5;X63Y107/CLK1;X63Y107/CLK1/GB00;5;X65Y107/CLK0;X65Y107/CLK0/GB00;5;X88Y54/SPINE19;X88Y54/SPINE19/BRMDCLK1_BOT;5;X78Y82/SPINE0;X87Y81/SPINE0/CBRIDGEOUT_BOTTOM3;5;X66Y91/GT00;X66Y100/GT00/SPINE0;5;X67Y107/GB00;X66Y107/GBO0/GT00;5;X65Y107/CLK1;X65Y107/CLK1/GB00;5"
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 24161 ] ,
+          "attributes": {
+            "ROUTING": " ",
+            "src": "blinky.v:2.17-2.20"
+          }
+        }
+      }
+    }
+  }
+}

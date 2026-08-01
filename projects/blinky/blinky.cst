@@ -1,0 +1,8 @@
+// Pins copied from the official DDR example:
+// ext/TangMega-138K-example/ddr_memory/ddr_memory_test_uart/src/ddr3_1v4_hs.cst
+
+IO_LOC  "clk" V22;
+IO_PORT "clk" IO_TYPE=LVCMOS33 PULL_MODE=NONE BANK_VCCIO=3.3;
+
+IO_LOC  "led_V13" V13;
+IO_PORT "led_V13" IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=4 BANK_VCCIO=3.3;
