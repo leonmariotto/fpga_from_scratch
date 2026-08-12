@@ -11,8 +11,7 @@ My Tang 138K contains :
 - 2x Winbond W9825G6KH-6: small SDR SRAM of 32KB each. Easier access than DDR3.
 - 2x SK hynix H5TQ4G63EFR-RDC: larger SRAM of 1GB each, DDR3-1866-class RDC speed grade
 
-
-### Toolchain
+## Toolchain
 
 Fully open-source toolchain :
 - yosys: parse verilog.
@@ -34,3 +33,10 @@ sudo udevadm control --reload-rules
 sudo udevadm trigger
 ```
 Then, with "MCU" USB-C connected (not "FPGA"), the board should be detected by openFPGALoader: `openFPGALoader -b tangconsole --detect`.
+
+## Course notes
+
+Check `courses` folder for my notes following the book *Digital design and computer architecture:
+RISCV edition* by Sarah L Harris and David Harris.
+Each chapter should contain markdown notes, and exercices made.
+The markdown should build with mdbook in CI and produce a static page / pdf. !TODO!
