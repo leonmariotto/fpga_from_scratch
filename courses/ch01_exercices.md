@@ -16,20 +16,20 @@ a)
 | 1 | 1 | 0 | 1 |
 | 1 | 1 | 1 | 1 |
 
-(min variable mean NOT)
-Y = abC + aBc + aBC + Abc + AbC + ABc + ABC
-(ABc + ABC = AB)
-Y = abC + aBc + aBC + Abc + AbC + AB
-(Abc + AbC = Ab)
-Y = abC + aBc + aBC + Ab + AB
-(aBc + aBC = aB)
-Y = abC + aB + Ab + AB
-(aB + AB = B)
-Y = abC + B + Ab
-(use the boolean identity: B + Ab = A + B)
-Y = abC + A + B
-(since when A and B are 1 the expression is already 0, we can simplify abC into C)
-Y = A + B + C
+- (min variable mean NOT)
+- Y = abC + aBc + aBC + Abc + AbC + ABc + ABC
+- (ABc + ABC = AB)
+- Y = abC + aBc + aBC + Abc + AbC + AB
+- (Abc + AbC = Ab)
+- Y = abC + aBc + aBC + Ab + AB
+- (aBc + aBC = aB)
+- Y = abC + aB + Ab + AB
+- (aB + AB = B)
+- Y = abC + B + Ab
+- (use the boolean identity: B + Ab = A + B)
+- Y = abC + A + B
+- (since when A and B are 1 the expression is already 0, we can simplify abC into C)
+- Y = A + B + C
 
 b)
 True when an odd number of input are 1.
@@ -45,8 +45,8 @@ True when an odd number of input are 1.
 | 1 | 1 | 0 | 0 |
 | 1 | 1 | 1 | 1 |
 
-Y = abC + aBc + Abc + ABC
-Y = C(ab + AB) + c(aB + Ab)
+- Y = abC + aBc + Abc + ABC
+- Y = C(ab + AB) + c(aB + Ab)
 
 c)
 False when an odd number of input are 1.
@@ -91,7 +91,7 @@ a)
 | 1 | 1 | 1 | 0 | 1 |
 | 1 | 1 | 1 | 1 | 1 |
 
-Y = A + B + C + D
+- Y = A + B + C + D
 
 b)
 | A | B | C | Y |
@@ -105,7 +105,7 @@ b)
 | 1 | 1 | 0 | 1 |
 | 1 | 1 | 1 | 0 |
 
-Y = abc + aBC + AbC + ABc
+- Y = abc + aBC + AbC + ABc
 
 c)
 | A | B | C | D | E | Y |
@@ -143,7 +143,7 @@ c)
 | 1 | 1 | 1 | 1 | 0 | 1 |
 | 1 | 1 | 1 | 1 | 1 | 0 |
 
-Y = a + b + c + d + e
+- Y = a + b + c + d + e
 
 ## 1.73
 
@@ -158,10 +158,10 @@ Y = a + b + c + d + e
 | 1 | 1 | 0 | 1 |
 | 1 | 1 | 1 | 1 |
 
-Y = aBC + AbC + ABc + ABC
-Y = aBC + AbC + ABc + ABC + ABC + ABC
-Y = BC(a + A) AC(b + B) + AB(c + C)
-Y = AB + AC + BC
+- Y = aBC + AbC + ABc + ABC
+- Y = aBC + AbC + ABc + ABC + ABC + ABC
+- Y = BC(a + A) AC(b + B) + AB(c + C)
+- Y = AB + AC + BC
 
 ## 1.74
 
