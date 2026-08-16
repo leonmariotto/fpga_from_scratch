@@ -81,11 +81,13 @@ With bubble pushing I can replace the NOR gate by NOT and AND gates.
 
 ## 2.13
 
+a)
 - Y = AC + abC
 - Y = C(A + ab)
 - Y = C(A + b)
 - Y = AC + bC
 
+b)
 - Y = ab + aBc + nor(A, c)
 - Y = ab + aBc + aC
 - Y = ab + a(Bc + C)
@@ -94,6 +96,7 @@ With bubble pushing I can replace the NOR gate by NOT and AND gates.
 - Y = a(b + B) + aC
 - Y = a + aC
 
+c)
 - Y = abcd + Abc + AbCd + ABD + abCd + BcD + a
 - Y = abcd + Abc + bCd(a + A) + ABD + BcD + a
 - Y = abcd + Abc + bCd + ABD + BcD + a
@@ -105,7 +108,8 @@ With bubble pushing I can replace the NOR gate by NOT and AND gates.
 - Y = bd + bc + BD + BcD + a
 - Y = bd + c(b + BD) + BD + a
 - Y = bd + c(b + D) + BD + a
-- Y = bd + bc + cD + BD + a -> use *consensus*: cD is already covered by `BD + bc`
+- Y = bd + bc + cD + BD + a -> use *consensus*: cD is already covered by `BD +
+bc`
 - Y = bd + BD + bc + a
 
 ## 2.15
@@ -113,10 +117,74 @@ With bubble pushing I can replace the NOR gate by NOT and AND gates.
 ![Ex15](./ch02/ex_15.png)
 
 ## 2.17
+
+a)
+- Y = BC + abc + Bc
+- Y = B + abc
+- Y = B + ac
+
+b)
+- Y = nor(A, aB, ab) + nor(A, b)
+- Y = a(nand(a, B))(nand(a, b)) + aB
+- Y = a(A + b)(A + B) + aB -> use `T8(bis)`
+- Y = a(A + (bB)) + aB
+- Y = a(A + 0) + aB
+- Y = a(A) + aB
+- Y = 0 + aB
+- Y = aB
+
 ## 2.22
+
+Indempotency theoreme state that `BB == B`
+- B = B * 1
+- 1 = B + b
+- B = B(B + b)
+- B = BB + bB -> use *complements*.
+- B = BB
+
+Distributivity theorem state that `(B and C) or (B and D) == B and (C or D)`.
+Distributivity is one of the fundational axiom/law and cannot be proved using 
+boolean algebra only. It can be observed on truth table.
+
+The combining theorem state that `(B and C) or (B and not(C)) == B`.
+- BC + Bc = B
+- B(C + c) = B
+- B(1) = B
+
 ## 2.23
+
+De Morgan's theorem state that `nand(A, B, ...) == not(A) or not(B) or ...`. If 
+we observe the property of `nand(A, B, C)` we can see it's 0 only when all 
+elements are 1, we can inverse this sentence by saying "it's 1 when at least
+one element is 0". Translating this last sentence in boolean algebra it become
+`not(A) or not(B) or not(C)`.
+
 ## 2.28
+
+- Y = Abcd + AbCD + ABcd + ABcD + ABCD
+- Y = Abcd + AbCD + ABc + ABCD
+- Y = Abcd + AbCD + AB(c + CD)
+- Y = Abcd + AbCD + AB(c + D)
+- Y = Abcd + AbCD + AbCd + ABc + ABD <- introduce a don't care entry
+- Y = Abcd + AbC + ABc + ABD
+- Y = Abcd + AbCd + AbC + ABc + ABD
+- Y = Abd + AbC + ABc + ABD
+- Y = A(bd + bC + Bc + BD)
+
+
+This can be better, let's re-start with some don;t care in the equations.
+- Y = Abcd + AbCD + ABcd + ABcD + ABCD + ABCd + AbCd
+- Y = A(bcd + bCD + Bcd + BcD + BCD + BCd + bCd)
+- Y = A(cd + CD + BcD + Cd)
+- Y = A(cd + C + BcD)
+- Y = A(c(d + BD) + C)
+- Y = A(c(d + B) + C) -> apply *identity* on Cs.
+- Y = A(C + d + B)
+
 ## 2.29
+
+![Ex07](./ch02/ex_29.png)
+
 ## 2.30
 ## 2.36
 ## 2.41
