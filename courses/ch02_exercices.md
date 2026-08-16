@@ -183,7 +183,7 @@ This can be better, let's re-start with some don;t care in the equations.
 
 ## 2.29
 
-![Ex07](./ch02/ex_29.png)
+![Ex29](./ch02/ex_29.png)
 
 ## 2.30
 ## 2.36
