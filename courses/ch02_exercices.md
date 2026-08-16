@@ -73,7 +73,7 @@ e)
 
 ## 2.7
 
-![Ex07](./ch02/ex_07.jpg)
+![Ex07](./ch02/ex_07.png)
 
 ## 2.9
 
@@ -110,7 +110,7 @@ With bubble pushing I can replace the NOR gate by NOT and AND gates.
 
 ## 2.15
 
-![Ex15](./ch02/ex_15.jpg)
+![Ex15](./ch02/ex_15.png)
 
 ## 2.17
 ## 2.22
