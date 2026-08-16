@@ -238,6 +238,7 @@ Simplified, this become :
 
 ![Ex29](./ch02/ex_36.png)
 
-## 2.41
 ## 2.43
-## 2.48
+
+Tcd = 3 * 20 = 60 ps
+Tpd = 15 ps
