@@ -186,7 +186,58 @@ This can be better, let's re-start with some don;t care in the equations.
 ![Ex29](./ch02/ex_29.png)
 
 ## 2.30
+
+First version contains glitch. Because A can activate the signal, that would be
+take down by BCD later. The second version contains no glitch but have more 
+gates.
+
 ## 2.36
+
+Design a priority encoder with 8 inputs and 3 bits output. 
+Example: if input is 00100000, output should be 101.
+
+Need to select the input to display, according to MSB priority 
+(lowercase i5 mean complement of input no 5):
+- S7 = I7
+- S6 = i7I6
+- S5 = i6i7I5
+- S4 = i5i6i7I4
+- S3 = i4i5i6i7I3
+- S2 = i3i4i5i6i7I2
+- S1 = i2i3i4i5i6i7I1
+- S0 = i1i2i3i4i5i6i7I0
+
+Now let see the output depending on the selected input (note that 
+output is inverted: LSB):
+| S | Y2 | Y1 | Y0 |
+|---|----|----|----|
+| 0 | 0  | 0  | 0  |
+| 1 | 0  | 0  | 1  |
+| 2 | 0  | 1  | 0  |
+| 3 | 0  | 1  | 1  |
+| 4 | 1  | 0  | 0  |
+| 5 | 1  | 0  | 1  |
+| 6 | 1  | 1  | 0  |
+| 7 | 1  | 1  | 1  |
+
+
+So, this give us :
+- Y0 = S1 + S3 + S5 + S7
+- Y1 = S2 + S3 + S6 + S7
+- Y2 = S4 + S5 + S6 + S7
+
+
+Simplified, this become :
+- Y0 = (i2i3i4i5i6i7I1) + (i4i5i6i7I3) + (i6i7I5) + I7
+- Y0 = i2i4i6I1 + i4i6I3 + i6I5 + I7
+- Y1 = i3i4i5i6i7I2 + i4i5i6i7I3 + i7I6 + I7
+- Y1 = i4i5I2 + i4i5I3 + I6 + I7
+- Y1 = i4i5(I2 + I3) + I6 + I7
+- Y2 = i5i6i7I4 + i6i7I5 + i7I6 + I7
+- Y2 = I4 + I5 + I6 + I7
+
+![Ex29](./ch02/ex_36.png)
+
 ## 2.41
 ## 2.43
 ## 2.48
