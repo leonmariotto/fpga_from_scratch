@@ -40,3 +40,20 @@ Check `courses` folder for my notes following the book *Digital design and compu
 RISCV edition* by Sarah L Harris and David Harris.
 Each chapter should contain markdown notes, and exercices made.
 The markdown should build with mdbook in CI and produce a static page / pdf. !TODO!
+
+### Excalidraw setup
+
+Excalidraw is a very good tool to draw quick schematics for logic circuit.
+
+Use this to launch a excalidraw instance :
+```
+docker run -d \
+  --name excalidraw \
+  --restart unless-stopped \
+  -p 8080:80 \
+  excalidraw/excalidraw:latest
+```
+Then, download the logic gate library at `https://libraries.excalidraw.com/libraries/thebrahmnicboy/Logic-Gates.excalidrawlib`.
+
+Then, load it in excalidraw (`localhost:8080`), don't forget to activate grid 
+and select lines with sharp edges. Enjoy!
