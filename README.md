@@ -57,3 +57,14 @@ Then, download the logic gate library at `https://libraries.excalidraw.com/libra
 
 Then, load it in excalidraw (`localhost:8080`), don't forget to activate grid 
 and select lines with sharp edges. Enjoy!
+
+### WaveDrom
+
+WaveDrom is a simple tool to generate timing diagram from a JSON specification.
+Find documentation here : https://github.com/wavedrom/wavedrom
+
+Here's an example of command line use :
+```
+npx wavedrom --input courses/ch03/register_timing.json > courses/ch03/register_timing.svg
+```
+Produced SVG can then be processed by excalidraw for annotating.
