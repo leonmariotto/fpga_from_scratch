@@ -53,8 +53,14 @@ Because the encoding 11 don't exist we can remove s0 when S1 :
 - S'1 = S0s1B + S1AB
 - Q = S1AB
 
+![Ex23 schematic](./ch03/ex23_schematic.svg)
+
 
 ## 3.25
+
+![Little snail brain](./ch03/little_snail_brain.svg)
+
+
 ## 3.29
 ## 3.31
 ## 3.33
