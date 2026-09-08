@@ -60,6 +60,43 @@ Because the encoding 11 don't exist we can remove s0 when S1 :
 
 ![Little snail brain](./ch03/little_snail_brain.svg)
 
+Let's state the following encoding :
+| states | encoding |
+|--------|----------|
+|  st0   |   000    |
+|  st1   |   001    |
+|  st2   |   010    |
+|  st3   |   100    |
+|  st4   |   101    |
+
+
+Combined state transition and output table:
+| S0 | S1 | S2 | I | S'0 | S'1 | S'2 | Q |
+|----|----|----|---|-----|-----|-----|---|
+|  0 |  0 |  0 | 0 |  0  |  0  |  0  | 0 |
+|  0 |  0 |  0 | 1 |  1  |  0  |  0  | 0 |
+|  1 |  0 |  0 | 0 |  0  |  0  |  0  | 0 |
+|  1 |  0 |  0 | 1 |  0  |  1  |  0  | 0 |
+|  0 |  1 |  0 | 0 |  0  |  0  |  1  | 0 |
+|  0 |  1 |  0 | 1 |  1  |  0  |  1  | 0 |
+|  0 |  0 |  1 | 1 |  1  |  0  |  0  | 1 |
+|  0 |  0 |  1 | 0 |  0  |  0  |  0  | 0 |
+|  1 |  0 |  1 | 0 |  0  |  0  |  1  | 1 |
+|  1 |  0 |  1 | 1 |  1  |  0  |  1  | 0 |
+
+
+- S'0 = s0s1s2I + s0S1s2I + s0s1S2I + S0s1S2I
+- S'1 = S0s1s2I
+- S'2 = s0S1s2I + s0S1s2i + S0s1S2I + S0s1S2i
+- Q = s0s1S2I + S0s1S2i
+
+Simplified :
+- S'0 = s0s2I + s1S2I
+- S'1 = S0s1s2I
+- S'2 = s0S1s2 + S0s1S2
+- Q = s0s1S2I + S0s1S2i
+
+I'm not doing the schematic for this.
 
 ## 3.29
 ## 3.31
