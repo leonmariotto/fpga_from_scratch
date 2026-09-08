@@ -1,6 +1,8 @@
 # Chapter 03 : exercices
 
 ## 3.1
+![Ex01](./ch03/ex01.svg)
+
 ## 3.3
 ## 3.5
 ## 3.7
