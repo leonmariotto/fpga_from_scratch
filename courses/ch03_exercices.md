@@ -102,6 +102,45 @@ I'm not doing the schematic for this.
 
 ![Ex29 timing](./ch03/ex29_timing.svg)
 
+This FSM is a Meally machine because outputs depends not only of the state but also directly 
+on inputs.
+
+![Ex29 schematic](./ch03/ex29_schematic.svg)
+
+
+| states | encoding |
+|--------|----------|
+|  st0   |    00    |
+|  st1   |    01    |
+|  st2   |    10    |
+|  st3   |    11    |
+
+
+Combined state transition and output table:
+| S0 | S1 | A | B | S'0 | S'1 | Z |
+|----|----|---|---|-----|-----|---|
+|  0 |  0 | 0 | X |  0  |  0  | 0 |
+|  0 |  0 | 1 | 0 |  1  |  1  | 0 |
+|  0 |  0 | 1 | 1 |  1  |  0  | 1 |
+|  1 |  0 | 0 | 0 |  0  |  0  | 0 |
+|  1 |  0 | 1 | 0 |  1  |  1  | 1 |
+|  1 |  0 | 0 | 1 |  0  |  1  | 1 |
+|  1 |  0 | 1 | 1 |  1  |  0  | 1 |
+|  0 |  1 | 0 | 0 |  0  |  0  | 0 |
+|  0 |  1 | 1 | 0 |  1  |  1  | 0 |
+|  0 |  1 | 0 | 1 |  0  |  1  | 0 |
+|  0 |  1 | 1 | 1 |  1  |  0  | 1 |
+|  1 |  1 | 0 | 0 |  0  |  0  | 0 |
+|  1 |  1 | 1 | 0 |  1  |  1  | 1 |
+|  1 |  1 | 0 | 1 |  0  |  1  | 1 |
+|  1 |  1 | 1 | 1 |  1  |  0  | 1 |
+
+- S'0 = s0s1Ab + s0s1AB + S0s1Ab + S0s1AB + s0S1Ab + s0S1AB + S0S1Ab + S0S1AB
+- S'1 = s0s1Ab + S0s1aB + s0S1Ab + s0S1aB + S0S1Ab + S0S1aB
+- Z = s0s1AB + S0s1A + S0s1aB + s0S1AB + S0S1A + S0S1aB
+
+The correction book appear broken, there is issue, I can't verify me result. Stoping here.
+
 ## 3.31
 ## 3.33
 ## 3.35
