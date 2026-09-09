@@ -7,18 +7,24 @@ BUILD := build
 SYNTH := $(BUILD)/blinky-synth.json
 PNR := $(BUILD)/blinky.json
 BITSTREAM := $(BUILD)/blinky.fs
+SCHEMATIC := $(BUILD)/blinky.svg
 
 .DEFAULT_GOAL := all
 
-.PHONY: all program flash clean
+.PHONY: all schematic program flash clean
 
 all: $(BITSTREAM)
+
+schematic: $(SCHEMATIC)
 
 $(BUILD):
 	mkdir -p $@
 
-$(SYNTH): blinky.v | $(BUILD)
-	$(YOSYS) -p "read_verilog $<; synth_gowin -top top -family gw5a -json $@"
+$(SYNTH): blinky.sv | $(BUILD)
+	$(YOSYS) -p "read_verilog -sv $<; synth_gowin -top top -family gw5a -json $@"
+
+$(SCHEMATIC): blinky.sv | $(BUILD)
+	$(YOSYS) -p "read_verilog -sv $<; hierarchy -top top; proc; opt; show -format svg -prefix $(basename $@)"
 
 $(PNR): $(SYNTH) blinky.cst
 	$(NEXTPNR) --device GW5AST-LV138PG484AC1/I0 \

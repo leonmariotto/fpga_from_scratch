@@ -19,7 +19,8 @@ make program
 
 `make` runs the tools in order:
 
-1. Yosys synthesizes `blinky.v` into a JSON netlist.
+1. Yosys reads the SystemVerilog source `blinky.sv` with `read_verilog -sv`
+   and synthesizes it into a JSON netlist.
 2. nextpnr-himbaechel places and routes it using `blinky.cst`.
 3. Apicula's `gowin_pack` creates `build/blinky.fs`.
 
@@ -31,3 +32,21 @@ make flash
 ```
 
 Remove generated files with `make clean`.
+
+Generate an RTL-level SVG schematic with:
+
+```sh
+make schematic
+```
+
+The result is written to `build/blinky.svg`. Yosys uses Graphviz's `dot`
+command to render the SVG; it is included in OSS CAD Suite.
+
+## SystemVerilog support
+
+This example uses Yosys's built-in SystemVerilog frontend. Yosys documents it
+as supporting a **small synthesizable subset of SystemVerilog**, rather than a
+complete IEEE 1800 language revision. In practice, common RTL constructs such
+as `logic`, `always_ff`, `always_comb`, packed arrays, parameters, and many
+generate constructs are supported. Test any more advanced language feature
+against the Yosys version in your OSS CAD Suite before relying on it.
