@@ -99,6 +99,9 @@ Simplified :
 I'm not doing the schematic for this.
 
 ## 3.29
+
+![Ex29 timing](./ch03/ex29_timing.svg)
+
 ## 3.31
 ## 3.33
 ## 3.35
