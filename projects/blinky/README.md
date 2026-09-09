@@ -42,6 +42,14 @@ make schematic
 The result is written to `build/blinky.svg`. Yosys uses Graphviz's `dot`
 command to render the SVG; it is included in OSS CAD Suite.
 
+Makefiles implement basic **simulation** using oss-cad-suite (Icarus). It
+produce readable waveform.
+```
+make sim
+gtkwave build/blinky.vcd
+```
+
+
 ## SystemVerilog support
 
 This example uses Yosys's built-in SystemVerilog frontend. Yosys documents it
