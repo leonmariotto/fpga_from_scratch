@@ -102,8 +102,8 @@ I'm not doing the schematic for this.
 
 ![Ex29 timing](./ch03/ex29_timing.svg)
 
-This FSM is a Meally machine because outputs depends not only of the state but also directly 
-on inputs.
+This FSM is a Meally machine because outputs depends not only of the state but 
+also directly on inputs.
 
 ![Ex29 schematic](./ch03/ex29_schematic.svg)
 
@@ -139,8 +139,62 @@ Combined state transition and output table:
 - S'1 = s0s1Ab + S0s1aB + s0S1Ab + s0S1aB + S0S1Ab + S0S1aB
 - Z = s0s1AB + S0s1A + S0s1aB + s0S1AB + S0S1A + S0S1aB
 
-The correction book appear broken, there is issue, I can't verify me result. Stoping here.
+The book correction appear broken, there is issues, I can't verify the result. 
+Stoping here.
 
 ## 3.31
+
+This is a Moore machine, a divide-by-two counter.
+
+| S0 | S1 | X | S'0 | S'1 |
+|----|----|---|-----|-----|
+|  0 |  0 | 0 |  0  |  0  |
+|  0 |  0 | 1 |  1  |  1  |
+|  0 |  1 | 0 |  0  |  0  |
+|  0 |  1 | 1 |  1  |  0  |
+|  1 |  X | X |  0  |  1  |
+
+
+| S0 | S1 | Q |
+|----|----|---|
+|  0 |  0 | 0 |
+|  0 |  1 | 1 |
+|  1 |  X | 1 |
+
+- S'0 = s0s1X + S0S1X
+- S'1 = s1X + S0
+- Q = s0S1 + S0
+
 ## 3.33
+
+- 100ps * 3 = 300ps for the combinational circuit.
+- So, Tc = 300 + 60 + 70 = 430ps
+- 1 / 430 - 2.33GHz
+
+At 2GHz we need to satisfy :
+- Tc > 60 + 300 + 70 + Tskew
+- Tskew <= 70
+
+For hold time violation we must satisfy:
+- 55 >= 20 + Tskew - 70.
+- Tskew < -(20 - 55 - 50)
+- Tskew < -20 + 55 + 50
+- Tskew < 85
+
 ## 3.35
+
+- 25 > 0.72 + T(combinational logic) + 0.53
+- T(combinational logic) < -(0.72 + 0.53 - 25)
+- T(combinational logic) < -(1.25 - 25)
+- T(combinational logic) < 23.75
+
+If a single CLB have a propagation delay of 0.61ns, we can fit 
+`23.75 / 0.61 = 39.9` CLBs between two flip flop.
+
+
+- `T(combination logic) >= Thold + Tskew - T(clock-to-Q)`
+- `0.3 >= 0 + Tskew - 0.5`
+- `0.3 >= 0 + Tskew - 0.5`
+- `0.3 + 0.5 >= Tskew`
+- `0.8 >= Tskew`
+- `Tskew < 0.8`
