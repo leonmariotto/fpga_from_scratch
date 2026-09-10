@@ -1,0 +1,8 @@
+// Tang Console PMOD0: pin 11 input, pin 12 output, and pin 3 or 4 GND.
+// GND is a fixed power pin, not programmable FPGA I/O, so it is not listed.
+// The pull-up gives a defined 1 when the input is left open.
+IO_LOC  "in" V18;
+IO_PORT "in" IO_TYPE=LVCMOS33 PULL_MODE=UP BANK_VCCIO=3.3;
+
+IO_LOC  "out" V19;
+IO_PORT "out" IO_TYPE=LVCMOS33 PULL_MODE=NONE DRIVE=4 BANK_VCCIO=3.3;
