@@ -4,7 +4,7 @@ module tb_inverter;
     logic in;
     logic out;
 
-    top dut (.*);
+    inverter dut (.*);
 
     initial begin
         $dumpfile("build/inverter.vcd");

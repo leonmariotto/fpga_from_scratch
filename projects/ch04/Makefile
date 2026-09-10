@@ -35,7 +35,7 @@ $(SYNTH): $(NAME).sv | $(BUILD)
 	$(YOSYS) -p "read_verilog -sv $<; synth_gowin -top top -family gw5a -json $@"
 
 $(SCHEMATIC): $(NAME).sv | $(BUILD)
-	$(YOSYS) -p "read_verilog -sv $<; hierarchy -top top; proc; opt; show -format svg -prefix $(basename $@)"
+	$(YOSYS) -p "read_verilog -sv $<; hierarchy -top $(NAME); proc; opt; show -format svg -prefix $(basename $@)"
 
 $(SIM): $(NAME).sv tb_$(NAME).sv | $(BUILD)
 	$(IVERILOG) -g2012 -s tb_$(NAME) -o $@ $^

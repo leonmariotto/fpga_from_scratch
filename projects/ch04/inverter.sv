@@ -1,4 +1,4 @@
-module top (
+module inverter (
     input  logic in,
     output logic out
 );
