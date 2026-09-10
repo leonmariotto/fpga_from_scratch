@@ -44,9 +44,9 @@ module tb_register;
 			assert(q === next[3:0])
 				else $fatal(1, "q=%04b expected=%04b", q, next);
 
-			$display("PASS: register behavior");
 		end
 		#10;
+		$display("PASS: register behavior");
 		$finish;
 	end
 endmodule
