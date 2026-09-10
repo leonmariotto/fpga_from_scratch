@@ -63,9 +63,9 @@ $(SCHEMATIC): $(NAME).sv | $(BUILD)
 $(SIM): $(NAME).sv tb_$(NAME).sv | $(BUILD)
 	$(IVERILOG) -g2012 -s tb_$(NAME) -o $@ $^
 
-$(PNR): $(SYNTH) $(NAME).cst
+$(PNR): $(SYNTH) dummy.cst
 	$(NEXTPNR) --device GW5AST-LV138PG484AC1/I0 \
-		--json $(SYNTH) --write $@ --vopt cst=$(NAME).cst \
+		--json $(SYNTH) --write $@ --vopt cst=dummy.cst \
 		--freq 50 --timing-allow-fail -r
 
 $(BITSTREAM): $(PNR)
