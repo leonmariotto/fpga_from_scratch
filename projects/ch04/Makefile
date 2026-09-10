@@ -12,6 +12,7 @@ SYNTH := $(BUILD)/$(NAME)-synth.json
 PNR := $(BUILD)/$(NAME).json
 BITSTREAM := $(BUILD)/$(NAME).fs
 SCHEMATIC := $(BUILD)/$(NAME).svg
+FSM_KISS2 := $(BUILD)/$(NAME).kiss2
 SIM := $(BUILD)/$(NAME).vvp
 
 # Icarus is sufficient for these small RTL exercises. Consider Verilator for
@@ -28,6 +29,28 @@ schematic: $(SCHEMATIC)
 sim: $(SIM)
 	$(VVP) $<
 
+fsm_info:
+	$(YOSYS) -p "\
+    	read_verilog -sv $(NAME).sv;\
+    	hierarchy -top $(NAME);\
+    	proc;\
+    	opt -nosdff -nodffe;\
+    	fsm -nomap -norecode\
+  	"
+
+# TODO LMA: no tool to parse kiss2 fsm and output a clean svg? do it then.
+fsm_export: $(FSM_KISS2)
+
+$(FSM_KISS2): $(NAME).sv | $(BUILD)
+	$(YOSYS) -p "\
+    	read_verilog -sv $(NAME).sv;\
+    	hierarchy -top $(NAME);\
+    	proc;\
+    	opt -nosdff -nodffe;\
+    	fsm -nomap -norecode;\
+    	fsm_export -o build/$(NAME).kiss2\
+  "
+
 $(BUILD):
 	mkdir -p $@
 
@@ -35,7 +58,7 @@ $(SYNTH): $(NAME).sv | $(BUILD)
 	$(YOSYS) -p "read_verilog -sv $<; synth_gowin -top top -family gw5a -json $@"
 
 $(SCHEMATIC): $(NAME).sv | $(BUILD)
-	$(YOSYS) -p "read_verilog -sv $<; hierarchy -top $(NAME); proc; opt; show -format svg -prefix $(basename $@)"
+	$(YOSYS) -p "read_verilog -sv $<; hierarchy -top $(NAME); proc; opt; show -format svg -stretch -width -colors 2 -prefix $(basename $@)"
 
 $(SIM): $(NAME).sv tb_$(NAME).sv | $(BUILD)
 	$(IVERILOG) -g2012 -s tb_$(NAME) -o $@ $^
