@@ -35,6 +35,11 @@
 ![ex4_13 simulation waves](./ch04/ex4_13_waves.png)
 
 ## 4.17
+
+Note that the toolchain did some optimization to the block (removing not gates, ...).
+
+![ex4_17 schematic](./ch04/ex4_17.svg)
+
 ## 4.29
 ## 4.43
 ## 4.47
