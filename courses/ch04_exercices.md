@@ -20,7 +20,7 @@
 | 1 | 1 | 0 | 0 |
 | 1 | 1 | 1 | 0 |
 
-![ex4_9 waves](./ch04/ex4_9_waves.svg)
+![ex4_9 waves](./ch04/ex4_9_waves.png)
 
 ## 4.13
 
