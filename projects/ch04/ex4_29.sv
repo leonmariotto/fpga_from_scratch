@@ -37,10 +37,12 @@ module ex4_29(input logic clk,
 				la = RED;
 				lb = GREEN;
 			end
-			S3:	begin
-				la = RED;
-				lb = YELLOW;
-			end
+			// Note the syntax, far better than the begin .. end block.
+			S3: {la, lb} = {RED, YELLOW};
+			// S3:	begin
+			// 	la = RED;
+			// 	lb = YELLOW;
+			// end
 			default:	begin
 				la = RED;
 				lb = RED;

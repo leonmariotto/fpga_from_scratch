@@ -21,7 +21,8 @@ module ex4_9(input logic a, b, c,
 			 output logic y);
 	logic [2:0] s;
 	assign s = {a, b, c};
-	mux8 m(
+	// The 1 here give an identifier for the mux8 block instance.
+	mux8 #(1) m(
 		s,
 		1'b1,
 		1'b0,
