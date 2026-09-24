@@ -59,7 +59,11 @@ Produced schematic :
 ![shifter schematic](./ch05/shifter.svg)
 ![shifter waves](./ch05/shifter_waves.png)
 
-## 5.47
+## 5.49
+
+![prefix_adder schematic](./ch05/prefix_adder.svg)
+![prefix_adder waves](./ch05/prefix_adder_waves.png)
+
 ## 5.53
 ## 5.63
 Do it for GOWIN FPGA (not cyclone)
