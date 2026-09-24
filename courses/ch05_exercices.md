@@ -55,6 +55,10 @@ Produced schematic :
 ![alu waves](./ch05/alu_waves.png)
 
 ## 5.21
+
+![shifter schematic](./ch05/shifter.svg)
+![shifter waves](./ch05/shifter_waves.png)
+
 ## 5.47
 ## 5.53
 ## 5.63
