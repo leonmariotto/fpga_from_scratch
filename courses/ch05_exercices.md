@@ -61,7 +61,9 @@ Produced schematic :
 
 ## 5.49
 
+4-bit version schematic:
 ![prefix_adder schematic](./ch05/prefix_adder.svg)
+
 ![prefix_adder waves](./ch05/prefix_adder_waves.png)
 
 ## 5.53
