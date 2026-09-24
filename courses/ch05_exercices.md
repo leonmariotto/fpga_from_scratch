@@ -44,9 +44,16 @@ In case of overflow.
 
 ## 5.11
 
-WARNING: test bench for it is ex15
+Code is in `project/ch05/alu.sv`.
+
+Produced schematic :
+![alu schematic](./ch05/alu_schematic.svg)
+
 
 ## 5.15
+
+![alu waves](./ch05/alu_waves.png)
+
 ## 5.21
 ## 5.47
 ## 5.53
