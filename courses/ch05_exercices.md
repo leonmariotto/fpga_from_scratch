@@ -67,5 +67,9 @@ Produced schematic :
 ![prefix_adder waves](./ch05/prefix_adder_waves.png)
 
 ## 5.53
+
+![counter schematic](./ch05/counter.svg)
+![counter waves](./ch05/counter_waves.png)
+
 ## 5.63
 Do it for GOWIN FPGA (not cyclone)
