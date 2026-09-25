@@ -72,4 +72,13 @@ Produced schematic :
 ![counter waves](./ch05/counter_waves.png)
 
 ## 5.63
-Do it for GOWIN FPGA (not cyclone)
+
+For GOWIN FPGA (not cyclone).
+
+`Y = bd + BD + bc + a` maps on a single LUT4. So we need only 1 LE for this.
+
+`Y = A + bc + de` would use 2 LEs with a decomposition like `tmp = A + bc` 
+and `Y = tmp + de`.
+
+The `snail_mealy` FSM occupy only 2 LE: it only need 2 LUT for logic, and 
+it use one of the registers in it.
