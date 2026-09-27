@@ -1,0 +1,60 @@
+synth_targets:
+  - name: single_cycle
+    sources:
+      - single_cycle.sv
+    top: single_cycle
+    cst: dummy.cst
+
+sim_targets:
+  - name: tb_alu
+    sources:
+      - single_cycle.sv
+      - tests/tb_alu.sv
+  - name: tb_alu_decoder
+    sources:
+      - single_cycle.sv
+      - tests/tb_alu_decoder.sv
+  - name: tb_control_unit
+    sources:
+      - single_cycle.sv
+      - tests/tb_control_unit.sv
+  - name: tb_extend
+    sources:
+      - single_cycle.sv
+      - tests/tb_extend.sv
+  - name: tb_main_decoder
+    sources:
+      - single_cycle.sv
+      - tests/tb_main_decoder.sv
+  - name: tb_ram
+    sources:
+      - single_cycle.sv
+      - tests/tb_ram.sv
+  - name: tb_regfile
+    sources:
+      - single_cycle.sv
+      - tests/tb_regfile.sv
+  - name: tb_register
+    sources:
+      - single_cycle.sv
+      - tests/tb_register.sv
+  - name: tb_single_cycle_add
+    sources:
+      - single_cycle.sv
+      - tests/tb_single_cycle_add.sv
+  - name: tb_single_cycle_addi
+    sources:
+      - single_cycle.sv
+      - tests/tb_single_cycle_addi.sv
+  - name: tb_single_cycle_beq
+    sources:
+      - single_cycle.sv
+      - tests/tb_single_cycle_beq.sv
+  - name: tb_single_cycle_jal
+    sources:
+      - single_cycle.sv
+      - tests/tb_single_cycle_jal.sv
+  - name: tb_single_cycle_sw
+    sources:
+      - single_cycle.sv
+      - tests/tb_single_cycle_sw.sv
