@@ -45,28 +45,34 @@ class RecordingSimulator(Simulator):
 
 
 def make_project(tmp_path: Path, config: str = VALID_CONFIG) -> LogicLabProject:
-    (tmp_path / "logiclab.yaml").write_text(config, encoding="utf-8")
+    (tmp_path / "logiclab.yml").write_text(config, encoding="utf-8")
     return LogicLabProject(
         tmp_path, RecordingSynthetizer(tmp_path), RecordingSimulator(tmp_path)
     )
 
 
-def test_project_lists_and_selects_targets(tmp_path: Path) -> None:
+def test_project_lists_and_selects_targets(
+    tmp_path: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
     project = make_project(tmp_path)
 
     assert project.show_off() == {
         "synth_targets": ["cpu"],
         "sim_targets": ["extend", "alu"],
     }
+    output = capsys.readouterr().out
+    assert f"LogicLab project: {tmp_path}" in output
+    assert "  - cpu" in output
+    assert "    top: single_cycle" in output
+    assert "    cst: board.cst" in output
+    assert "      - tests/tb_extend.sv" in output
     assert [target.name for target in project.run_synth([])] == ["cpu"]
     assert [target.name for target in project.run_sim([])] == ["extend", "alu"]
     assert [target.name for target in project.run_sim(["alu"])] == ["alu"]
 
 
 @pytest.mark.parametrize("missing_field", ["top", "cst"])
-def test_synth_target_requires_top_and_cst(
-    tmp_path: Path, missing_field: str
-) -> None:
+def test_synth_target_requires_top_and_cst(tmp_path: Path, missing_field: str) -> None:
     config = VALID_CONFIG.replace(
         f"    {missing_field}: "
         + ("single_cycle" if missing_field == "top" else "board.cst")

@@ -4,7 +4,7 @@ from logic_lab.yaml_parser import YamlParser
 
 
 def test_parse_yaml_file(tmp_path: Path) -> None:
-    config = tmp_path / "logiclab.yaml"
+    config = tmp_path / "logiclab.yml"
     config.write_text(
         """\
 project: single_cycle

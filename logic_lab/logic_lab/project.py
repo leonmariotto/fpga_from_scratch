@@ -15,7 +15,7 @@ class LogicLabProjectError(Exception):
 
 
 class LogicLabProject:
-    """Load and validate the ``logiclab.yaml`` for a project directory."""
+    """Load and validate the ``logiclab.yml`` for a project directory."""
 
     def __init__(
         self,
@@ -32,7 +32,7 @@ class LogicLabProject:
             )
 
         parser = YamlParser()
-        config_path = self.project_path / "logiclab.yaml"
+        config_path = self.project_path / "logiclab.yml"
         try:
             parser.parse(str(config_path))
         except YamlParserError as err:
@@ -44,12 +44,33 @@ class LogicLabProject:
         self.sim_targets = self._parse_sim_targets(parser.data)
 
     def show_off(self) -> dict[str, list[str]]:
-        """Return the synthesis and simulation targets available to run."""
+        """Print project and target details, then return the available names."""
 
-        return {
+        available = {
             "synth_targets": list(self.synth_targets),
             "sim_targets": list(self.sim_targets),
         }
+        print(f"LogicLab project: {self.project_path}")
+        print("Synthesis targets:")
+        if not self.synth_targets:
+            print("  (none)")
+        for target in self.synth_targets.values():
+            print(f"  - {target.name}")
+            print(f"    top: {target.top}")
+            print(f"    cst: {target.cst}")
+            print("    sources:")
+            for source in target.sources:
+                print(f"      - {source}")
+
+        print("Simulation targets:")
+        if not self.sim_targets:
+            print("  (none)")
+        for target in self.sim_targets.values():
+            print(f"  - {target.name}")
+            print("    sources:")
+            for source in target.sources:
+                print(f"      - {source}")
+        return available
 
     def run_synth(self, targets: list[str]) -> list[SynthTarget]:
         """Run selected synthesis targets using the injected synthetizer."""
@@ -67,9 +88,7 @@ class LogicLabProject:
             self.simulator.run(target)
         return selected
 
-    def _parse_synth_targets(
-        self, data: Mapping[str, Any]
-    ) -> dict[str, SynthTarget]:
+    def _parse_synth_targets(self, data: Mapping[str, Any]) -> dict[str, SynthTarget]:
         raw_targets = self._target_list(data, "synth_targets")
         targets: dict[str, SynthTarget] = {}
         for index, raw_target in enumerate(raw_targets):

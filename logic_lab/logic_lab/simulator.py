@@ -2,6 +2,9 @@
 
 import subprocess
 from pathlib import Path
+from shlex import join
+
+from loguru import logger
 
 from logic_lab.targets import SimTarget
 
@@ -21,6 +24,7 @@ class Simulator:
     def run(self, target: SimTarget) -> None:
         """Compile and execute one simulation target."""
 
+        logger.info("Simulating target [{}]", target.name)
         build_path = target.project_path / "build"
         build_path.mkdir(parents=True, exist_ok=True)
         simulation = build_path / f"{target.name}.vvp"
@@ -44,4 +48,5 @@ class Simulator:
 
     @staticmethod
     def _run(command: list[str], cwd: Path) -> None:
+        logger.debug("Run from [{}]: {}", cwd, join(command))
         subprocess.run(command, cwd=cwd, check=True)

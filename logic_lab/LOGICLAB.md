@@ -15,9 +15,9 @@ LogicLab must use some environment var :
 - `OSS_CAD_PATH`: top level of oss cad, will be used to find binary.
 
 A `--project_path` should always be passed to LogicLab tools, allowing tool 
-to parse the top level `logiclab.yaml`.
+to parse the top level `logiclab.yml`.
 
-The `logiclab.yaml` file at the top of the project dir must specify:
+The `logiclab.yml` file at the top of the project dir must specify:
 - a `synth_targets` list with, for each target: a name, a non-empty list of
 source files, the top module, and a CST file;
 - a `sim_targets` list with, for each target: a name and a non-empty list of

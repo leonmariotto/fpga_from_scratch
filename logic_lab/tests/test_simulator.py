@@ -18,9 +18,7 @@ def test_simulator_calls_iverilog_and_vvp(
         commands.append(command)
 
     monkeypatch.setattr(subprocess, "run", record_run)
-    target = SimTarget(
-        "tb_alu", ("single_cycle.sv", "tests/tb_alu.sv"), tmp_path
-    )
+    target = SimTarget("tb_alu", ("single_cycle.sv", "tests/tb_alu.sv"), tmp_path)
     simulator = Simulator(tmp_path / "oss-cad-suite")
 
     simulator.run(target)

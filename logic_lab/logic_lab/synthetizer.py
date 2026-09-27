@@ -2,6 +2,9 @@
 
 import subprocess
 from pathlib import Path
+from shlex import join
+
+from loguru import logger
 
 from logic_lab.targets import SynthTarget
 
@@ -28,6 +31,7 @@ class Synthetizer:
     def run(self, target: SynthTarget) -> None:
         """Run synthesis, place-and-route, packing, and schematic generation."""
 
+        logger.info("Synthesizing target [{}]", target.name)
         build_path = target.project_path / "build"
         build_path.mkdir(parents=True, exist_ok=True)
         synth_json = build_path / f"{target.name}-synth.json"
@@ -90,4 +94,5 @@ class Synthetizer:
 
     @staticmethod
     def _run(command: list[str], cwd: Path) -> None:
+        logger.debug("Run from [{}]: {}", cwd, join(command))
         subprocess.run(command, cwd=cwd, check=True)
