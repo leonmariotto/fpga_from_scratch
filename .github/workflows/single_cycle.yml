@@ -1,0 +1,32 @@
+name: make
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v6
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+
+      - name: Install oss-cad
+        uses: YosysHQ/setup-oss-cad-suite@v4
+
+      - name: Run single-cycle simulation
+        run: |
+            export OSS_CAD_PATH="$(dirname "$(dirname "$(command -v yosys)")")"
+            uv run --project logic_lab lolab \
+              -p projects/single_cycle_riscv sim
+
+      - name: Run single-cycle synth
+        run: |
+            export OSS_CAD_PATH="$(dirname "$(dirname "$(command -v yosys)")")"
+            uv run --project logic_lab lolab \
+              -p projects/single_cycle_riscv synth
