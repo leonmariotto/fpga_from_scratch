@@ -13,7 +13,9 @@ module tb_single_cycle_sw;
 	task automatic run_case(input [31:0] base, value,
 		input logic signed [11:0] offset, input integer word_index);
 		logic [31:0] instruction;
+		logic [31:0] expected_address;
 		instruction = encode_sw(5'd2, 5'd1, offset);
+		expected_address = base + {{20{offset[11]}}, offset};
 		dut.regs.rf[1] = base;
 		dut.regs.rf[2] = value;
 		dut.data_mem.mem[word_index] = 32'hfeed_face;
@@ -21,7 +23,7 @@ module tb_single_cycle_sw;
 		reset = 1; tick();
 		dut.inst_mem.dout = instruction;
 		reset = 0; #1;
-		assert (dut.memory_write && dut.alu_result === base + offset)
+		assert (dut.memory_write && dut.alu_result === expected_address)
 			else $fatal(1, "sw address/control is wrong");
 		tick();
 		assert (dut.data_mem.mem[word_index] === value)

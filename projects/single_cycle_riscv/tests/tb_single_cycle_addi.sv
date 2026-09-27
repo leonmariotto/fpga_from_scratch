@@ -29,7 +29,9 @@ module tb_single_cycle_addi;
 	endtask
 
 	initial begin
-		run_case(32'd10, 12'sd31, 32'd41);
+		// addi dst, src1, immediate
+		// first param is src1, second is immediate, end is expected.
+		run_case(32'd10, 12'sd31, 32'd41); // 10 + 31 = 41
 		run_case(32'd10, -12'sd7, 32'd3);
 		run_case(32'hffff_ffff, 12'sd1, 32'd0);
 		$display("PASS: tb_single_cycle_addi");

@@ -177,7 +177,7 @@ endmodule
 module regfile #(parameter N = 32)
 				(input logic clk,
 				input logic we3,
-				input logic [5:0] a1, a2, a3,
+				input logic [4:0] a1, a2, a3,
 				input logic [N-1:0] wd3,
 				output logic [N-1:0] rd1, rd2);
 	logic [N-1:0] rf[N-1:0];
@@ -193,16 +193,18 @@ endmodule
 
 module alu #(parameter N = 32)
 			(input logic [N-1:0] a, b,
-				input logic [1:0] alu_control,
+				input logic [2:0] alu_control,
 				output logic zero,
 				output logic [N-1:0] c);
 	always_comb
 		begin
 			case (alu_control)
-				2'b00: c = a + b;
-				2'b01: c = a - b;
-				2'b10: c = a & b;
-				2'b11: c = a | b;
+				3'b000: c = a + b;
+				3'b001: c = a - b;
+				3'b010: c = a & b;
+				3'b011: c = a | b;
+				3'b101: c = ($signed(a) < $signed(b)) ? 32'd1 : 32'd0; 
+				default: c = 32'bx;
 			endcase
 			zero = (c == 0 ? 1'b1 : 1'b0);
 		end
@@ -230,7 +232,7 @@ module single_cycle (input logic reset,
 	logic [31:0] src_b; // second input of ALU
 	logic alu_zero; // output of ALU, zero flag
 	logic alu_src; // control value to set wether src_b come from imm or reg
-	logic [1:0] alu_control; // control value for ALU operations
+	logic [2:0] alu_control; // control value for ALU operations
 	logic [31:0] alu_result; // output of ALU
 	logic [1:0] imm_src; // control value for immediate extend computation
 	logic [31:0] imm_ext; // immediate value extended to 32bit signed
@@ -272,8 +274,8 @@ module single_cycle (input logic reset,
 	);
 	control_unit control_unit_i(
 		.op(instruction[6:0]),
-		.funct3(instructions[14:12]),
-		.funct7_5(instructions[30]),
+		.funct3(instruction[14:12]),
+		.funct7_5(instruction[30]),
 		.zero(alu_zero),
 		.RegWrite(register_write),
 		.ImmSrc(imm_src),
