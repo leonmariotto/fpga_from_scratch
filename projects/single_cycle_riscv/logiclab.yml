@@ -4,8 +4,19 @@ synth_targets:
       - single_cycle.sv
     top: single_cycle
     cst: dummy.cst
+  - name: board
+    sources:
+      - single_cycle.sv
+      - board.sv
+    top: board
+    cst: board.cst
 
 sim_targets:
+  - name: tb_board_blinky
+    sources:
+      - single_cycle.sv
+      - board.sv
+      - tests/tb_board_blinky.sv
   - name: tb_alu
     sources:
       - single_cycle.sv

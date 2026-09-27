@@ -1,0 +1,11 @@
+// Tang Console 138K onboard 50 MHz clock.
+IO_LOC  "clk" V22;
+IO_PORT "clk" IO_TYPE=LVCMOS33 PULL_MODE=NONE BANK_VCCIO=3.3;
+
+// Onboard key1, active-high reset with a pull-down.
+IO_LOC  "reset" F4;
+IO_PORT "reset" IO_TYPE=LVCMOS15 PULL_MODE=DOWN BANK_VCCIO=1.5;
+
+// Tang Console dock LED, active-low.
+IO_LOC  "led_V13" V13;
+IO_PORT "led_V13" IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=4 BANK_VCCIO=3.3;
