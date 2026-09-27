@@ -1,0 +1,41 @@
+[project]
+name = "LogicLab"
+version = "0.1.0"
+description = "Digital design orchestrator for anything related to digital synthesis development."
+readme = "LOGICLAB.md"
+requires-python = ">=3.13,<3.14"
+dependencies = [
+    "click",
+    "ruff",
+    "pyright",
+    "strictyaml",
+]
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project.scripts]
+logic_lab = "logic_lab.logic_lab:logic_lab"
+# 
+[dependency-groups]
+build = ["pyright", "ruff"]
+dev =  ["pytest-cov", "pytest", "pytest-dependency", "httpx"]
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+typeCheckingMode = "strict"
+
+[tool.ruff]
+exclude = ["tests"]
+
+[tool.pytest.ini_options]
+addopts = [
+    "--cov=logic_lab",
+    "-s",
+    "--log-cli-level=INFO"
+]
+
+[tool.setuptools]
+packages = ["logic_lab"]
