@@ -1,9 +1,4 @@
 synth_targets:
-  - name: single_cycle
-    sources:
-      - single_cycle.sv
-    top: single_cycle
-    cst: dummy.cst
   - name: board
     sources:
       - single_cycle.sv
