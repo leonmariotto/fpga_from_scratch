@@ -28,6 +28,7 @@ dev =  ["pytest-cov", "pytest", "pytest-dependency", "httpx"]
 venvPath = "."
 venv = ".venv"
 typeCheckingMode = "strict"
+exclude = ["build"]
 
 [tool.ruff]
 exclude = ["tests"]

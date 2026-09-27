@@ -44,5 +44,10 @@ LogicLab tool must provide a command to know which synth and sim target are
 available for a given project path. The tool must allow running all synthesis 
 and all simulations target, but also singles.
 
+The `program` command loads an already-generated `build/<target>.fs` bitstream
+with openFPGALoader. It automatically selects the target when the project has
+exactly one synthesis target; projects with multiple synthesis targets require
+an explicit `-t/--target` selection.
+
 For now synthesis and simulation option are hardcoded, but it could be great to 
 have it parametrizable.

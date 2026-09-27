@@ -23,7 +23,7 @@ class Synthetizer:
         self.fpga_device = "GW5AST-LV138PG484AC1/I0"
         self.pack_device = "GW5AST-138C"
         self.frequency_mhz = 50
-        self.generate_schematic = True
+        self.generate_schematic = False
         self.yosys_options = ["-p"]
         self.nextpnr_options = ["--timing-allow-fail", "-r"]
         self.gowin_pack_options = ["--cpu_as_gpio"]

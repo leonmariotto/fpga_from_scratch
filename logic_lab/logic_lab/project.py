@@ -4,6 +4,7 @@ from collections.abc import Mapping, Sequence
 from pathlib import Path
 from typing import Any, cast
 
+from logic_lab.programmer import Programmer
 from logic_lab.simulator import Simulator
 from logic_lab.synthetizer import Synthetizer
 from logic_lab.targets import SimTarget, SynthTarget
@@ -22,10 +23,12 @@ class LogicLabProject:
         project_path: str | Path,
         synthetizer: Synthetizer,
         simulator: Simulator,
+        programmer: Programmer,
     ) -> None:
         self.project_path = Path(project_path).resolve()
         self.synthetizer = synthetizer
         self.simulator = simulator
+        self.programmer = programmer
         if not self.project_path.is_dir():
             raise LogicLabProjectError(
                 f"Project path is not a directory: {self.project_path}"
@@ -87,6 +90,25 @@ class LogicLabProject:
         for target in selected:
             self.simulator.run(target)
         return selected
+
+    def run_program(self, target_name: str | None) -> SynthTarget:
+        """Program exactly one synthesis target's generated bitstream."""
+
+        if target_name is None:
+            if len(self.synth_targets) != 1:
+                raise LogicLabProjectError(
+                    "A synthesis target must be selected with -t/--target when "
+                    "the project does not contain exactly one synthesis target"
+                )
+            target = next(iter(self.synth_targets.values()))
+        else:
+            selected = self._select_targets(
+                [target_name], self.synth_targets, "synthesis"
+            )
+            target = selected[0]
+
+        self.programmer.run(target)
+        return target
 
     def _parse_synth_targets(self, data: Mapping[str, Any]) -> dict[str, SynthTarget]:
         raw_targets = self._target_list(data, "synth_targets")

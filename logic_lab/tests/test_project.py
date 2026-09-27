@@ -2,6 +2,7 @@ from pathlib import Path
 
 import pytest
 
+from logic_lab.programmer import Programmer
 from logic_lab.project import LogicLabProject, LogicLabProjectError
 from logic_lab.simulator import Simulator
 from logic_lab.synthetizer import Synthetizer
@@ -44,10 +45,22 @@ class RecordingSimulator(Simulator):
         self.targets.append(target)
 
 
+class RecordingProgrammer(Programmer):
+    def __init__(self, oss_cad_path: Path) -> None:
+        super().__init__(oss_cad_path)
+        self.targets: list[SynthTarget] = []
+
+    def run(self, target: SynthTarget) -> None:
+        self.targets.append(target)
+
+
 def make_project(tmp_path: Path, config: str = VALID_CONFIG) -> LogicLabProject:
     (tmp_path / "logiclab.yml").write_text(config, encoding="utf-8")
     return LogicLabProject(
-        tmp_path, RecordingSynthetizer(tmp_path), RecordingSimulator(tmp_path)
+        tmp_path,
+        RecordingSynthetizer(tmp_path),
+        RecordingSimulator(tmp_path),
+        RecordingProgrammer(tmp_path),
     )
 
 
@@ -96,3 +109,26 @@ def test_unknown_requested_target_is_rejected(tmp_path: Path) -> None:
     project = make_project(tmp_path)
     with pytest.raises(LogicLabProjectError, match="Unknown simulation target"):
         project.run_sim(["missing"])
+
+
+def test_program_uses_only_synth_target_by_default(tmp_path: Path) -> None:
+    project = make_project(tmp_path)
+
+    assert project.run_program(None).name == "cpu"
+
+
+def test_program_requires_selection_for_multiple_synth_targets(tmp_path: Path) -> None:
+    second_target = """\
+  - name: board
+    sources:
+      - board.sv
+    top: board
+    cst: board.cst
+"""
+    config = VALID_CONFIG.replace("sim_targets:", second_target + "sim_targets:")
+    project = make_project(tmp_path, config)
+
+    with pytest.raises(LogicLabProjectError, match="must be selected"):
+        project.run_program(None)
+
+    assert project.run_program("board").name == "board"

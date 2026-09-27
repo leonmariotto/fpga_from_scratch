@@ -6,6 +6,7 @@ from pathlib import Path
 
 import click
 
+from logic_lab.programmer import Programmer
 from logic_lab.project import LogicLabProject
 from logic_lab.simulator import Simulator
 from logic_lab.synthetizer import Synthetizer
@@ -53,6 +54,7 @@ def _get_project(context: click.Context) -> LogicLabProject:
         cli_context.project_path,
         Synthetizer(cli_context.oss_cad_path),
         Simulator(cli_context.oss_cad_path),
+        Programmer(cli_context.oss_cad_path),
     )
 
 
@@ -92,3 +94,16 @@ def sim(context: click.Context, targets: tuple[str, ...]) -> None:
     """Run all or selected simulation targets."""
 
     _get_project(context).run_sim(list(targets))
+
+
+@logic_lab.command()
+@click.option(
+    "-t",
+    "--target",
+    help="Synthesis target whose bitstream should be programmed.",
+)
+@click.pass_context
+def program(context: click.Context, target: str | None) -> None:
+    """Program a synthesized bitstream using openFPGALoader."""
+
+    _get_project(context).run_program(target)

@@ -27,11 +27,10 @@ def test_synthetizer_calls_oss_cad_tools(
 
     assert [Path(command[0]).name for command in commands] == [
         "yosys",
-        "yosys",
         "nextpnr-himbaechel",
         "gowin_pack",
     ]
     assert "synth_gowin -top single_cycle -family gw5a" in commands[0][2]
-    assert "--device" in commands[2]
-    assert "cst=board.cst" in commands[2]
+    assert "--device" in commands[1]
+    assert "cst=board.cst" in commands[1]
     assert (tmp_path / "build").is_dir()

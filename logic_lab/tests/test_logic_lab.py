@@ -4,6 +4,7 @@ from click.testing import CliRunner
 from pytest import MonkeyPatch
 
 from logic_lab.logic_lab import logic_lab
+from logic_lab.programmer import Programmer
 from logic_lab.simulator import Simulator
 from logic_lab.synthetizer import Synthetizer
 from logic_lab.targets import SimTarget, SynthTarget
@@ -98,3 +99,21 @@ def test_sim_accepts_repeated_target_options(
 
     assert result.exit_code == 0
     assert selected == ["alu", "extend"]
+
+
+def test_program_accepts_target(tmp_path: Path, monkeypatch: MonkeyPatch) -> None:
+    write_config(tmp_path)
+    selected: list[str] = []
+
+    def record_run(self: Programmer, target: SynthTarget) -> None:
+        selected.append(target.name)
+
+    monkeypatch.setattr(Programmer, "run", record_run)
+    result = CliRunner().invoke(
+        logic_lab,
+        ["-p", str(tmp_path), "program", "-t", "cpu"],
+        env={"OSS_CAD_PATH": "/opt/oss-cad-suite"},
+    )
+
+    assert result.exit_code == 0
+    assert selected == ["cpu"]
