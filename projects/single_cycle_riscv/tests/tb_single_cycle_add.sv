@@ -1,7 +1,10 @@
 module tb_single_cycle_add;
 	logic clk = 0;
 	logic reset;
-	single_cycle dut (.*);
+	single_cycle dut (
+		.clk(clk),
+		.reset(reset)
+	);
 	always #5 clk = ~clk;
 
 	function automatic [31:0] encode_add(input [4:0] rd, rs1, rs2);
@@ -17,7 +20,6 @@ module tb_single_cycle_add;
 		dut.regs.rf[3] = 32'hfeed_face;
 		dut.inst_mem.mem[0] = instruction;
 		reset = 1; tick();
-		dut.inst_mem.dout = instruction;
 		reset = 0; #1; tick();
 		assert (dut.regs.rf[3] === expected)
 			else $fatal(1, "add %h + %h produced %h", lhs, rhs, dut.regs.rf[3]);

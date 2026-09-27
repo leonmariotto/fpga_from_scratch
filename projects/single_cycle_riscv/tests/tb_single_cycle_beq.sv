@@ -1,7 +1,10 @@
 module tb_single_cycle_beq;
 	logic clk = 0;
 	logic reset;
-	single_cycle dut (.*);
+	single_cycle dut (
+		.clk(clk),
+		.reset(reset)
+	);
 	always #5 clk = ~clk;
 
 	function automatic [31:0] encode_beq(input [4:0] rs1, rs2,
@@ -20,7 +23,6 @@ module tb_single_cycle_beq;
 		dut.regs.rf[3] = 32'hcafe_babe;
 		dut.inst_mem.mem[0] = instruction;
 		reset = 1; tick();
-		dut.inst_mem.dout = instruction;
 		reset = 0; #1;
 		assert (dut.pc_src === (lhs == rhs))
 			else $fatal(1, "beq decision is wrong for %h and %h", lhs, rhs);

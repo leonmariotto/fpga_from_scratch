@@ -164,6 +164,20 @@ module ram #(parameter N = 12, M = 32)
 	
 endmodule
 
+// Asynchronous-read ROM for the single-cycle instruction path.
+module rom #(parameter N = 12, M = 32, INIT_FILE = "", INIT_WORDS = 0)
+			(input logic [N-1:0] addr,
+			 output logic [M-1:0] dout);
+	logic [M-1:0] mem [0:2**N-1];
+
+	initial begin
+		if (INIT_FILE != "" && INIT_WORDS > 0)
+			$readmemh(INIT_FILE, mem, 0, INIT_WORDS - 1);
+	end
+
+	assign dout = mem[addr];
+endmodule
+
 // Resettable register for PC
 module register #(parameter N = 32)
 				(input logic clk,
@@ -210,8 +224,12 @@ module alu #(parameter N = 32)
 		end
 endmodule
 
-module single_cycle (input logic reset,
-						input logic clk);
+module single_cycle #(parameter INST_MEM_FILE = "", INST_MEM_WORDS = 0)
+					(input logic reset,
+						input logic clk,
+						output logic memory_write_out,
+						output logic [31:0] data_address,
+						output logic [31:0] write_data_out);
     localparam int N_INST = 12;
     localparam int N_DATA = 12;
     localparam int M = 32;
@@ -237,14 +255,18 @@ module single_cycle (input logic reset,
 	logic [1:0] imm_src; // control value for immediate extend computation
 	logic [31:0] imm_ext; // immediate value extended to 32bit signed
 
+	assign memory_write_out = memory_write;
+	assign data_address = alu_result;
+	assign write_data_out = write_data;
+
 	register PC_reg(
 		.clk(clk),
 		.reset(reset),
 		.d(pc_next),
 		.q(pc)
 	);
-	ram #(.N(N_INST), .M(M)) inst_mem (
-		.clk(clk),
+	rom #(.N(N_INST), .M(M), .INIT_FILE(INST_MEM_FILE),
+		  .INIT_WORDS(INST_MEM_WORDS)) inst_mem (
 		.addr(pc[N_INST+1:2]),
 		.dout(instruction)
 	);

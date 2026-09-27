@@ -1,7 +1,10 @@
 module tb_single_cycle_jal;
 	logic clk = 0;
 	logic reset;
-	single_cycle dut (.*);
+	single_cycle dut (
+		.clk(clk),
+		.reset(reset)
+	);
 	always #5 clk = ~clk;
 
 	function automatic [31:0] encode_jal(input [4:0] rd,
@@ -18,7 +21,6 @@ module tb_single_cycle_jal;
 		dut.regs.rf[5] = 32'hfeed_face;
 		dut.inst_mem.mem[0] = instruction;
 		reset = 1; tick();
-		dut.inst_mem.dout = instruction;
 		reset = 0; #1;
 		assert (dut.pc_src && dut.control_unit_i.Jump)
 			else $fatal(1, "jal did not select its target");

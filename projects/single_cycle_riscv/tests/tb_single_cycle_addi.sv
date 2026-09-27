@@ -1,7 +1,10 @@
 module tb_single_cycle_addi;
 	logic clk = 0;
 	logic reset;
-	single_cycle dut (.*);
+	single_cycle dut (
+		.clk(clk),
+		.reset(reset)
+	);
 	always #5 clk = ~clk;
 
 	function automatic [31:0] encode_addi(input [4:0] rd, rs1,
@@ -18,13 +21,13 @@ module tb_single_cycle_addi;
 		dut.regs.rf[3] = 32'hfeed_face;
 		dut.inst_mem.mem[0] = instruction;
 		reset = 1; tick();
-		dut.inst_mem.dout = instruction;
-		reset = 0; #1; tick();
+		reset = 0; #1;
+		assert (dut.imm_ext === {{20{immediate[11]}}, immediate})
+			else $fatal(1, "addi immediate was extended incorrectly");
+		tick();
 		assert (dut.regs.rf[3] === expected)
 			else $fatal(1, "addi lhs=%h imm=%0d produced %h",
 						lhs, immediate, dut.regs.rf[3]);
-		assert (dut.imm_ext === {{20{immediate[11]}}, immediate})
-			else $fatal(1, "addi immediate was extended incorrectly");
 		assert (dut.pc === 32'd4) else $fatal(1, "addi advanced PC to %h", dut.pc);
 	endtask
 
