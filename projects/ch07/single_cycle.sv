@@ -251,7 +251,7 @@ module single_cycle (input logic reset,
 		.din(write_data),
 		.we(memory_write),
 		.addr(alu_result[N_DATA+1:2]),
-		.dout(read_data),
+		.dout(read_data)
 	);
 	regfile regs (
 		.clk(clk),
@@ -261,7 +261,7 @@ module single_cycle (input logic reset,
 		.a3(instruction[11:7]),
 		.wd3(result),
 		.rd1(src_a),
-		.rd2(write_data),
+		.rd2(write_data)
 	);
 	alu alu_i(
 		.a(src_a),
