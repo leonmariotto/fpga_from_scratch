@@ -1,10 +1,12 @@
 """Validated LogicLab project configuration."""
 
 from collections.abc import Mapping, Sequence
-from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, cast
 
+from logic_lab.simulator import Simulator
+from logic_lab.synthetizer import Synthetizer
+from logic_lab.targets import SimTarget, SynthTarget
 from logic_lab.yaml_parser import YamlParser, YamlParserError
 
 
@@ -12,29 +14,18 @@ class LogicLabProjectError(Exception):
     """Raised when a LogicLab project definition is invalid."""
 
 
-@dataclass(frozen=True)
-class SynthTarget:
-    """A validated synthesis target."""
-
-    name: str
-    sources: tuple[str, ...]
-    top: str
-    cst: str
-
-
-@dataclass(frozen=True)
-class SimTarget:
-    """A validated simulation target."""
-
-    name: str
-    sources: tuple[str, ...]
-
-
 class LogicLabProject:
     """Load and validate the ``logiclab.yaml`` for a project directory."""
 
-    def __init__(self, project_path: str | Path) -> None:
+    def __init__(
+        self,
+        project_path: str | Path,
+        synthetizer: Synthetizer,
+        simulator: Simulator,
+    ) -> None:
         self.project_path = Path(project_path).resolve()
+        self.synthetizer = synthetizer
+        self.simulator = simulator
         if not self.project_path.is_dir():
             raise LogicLabProjectError(
                 f"Project path is not a directory: {self.project_path}"
@@ -61,44 +52,50 @@ class LogicLabProject:
         }
 
     def run_synth(self, targets: list[str]) -> list[SynthTarget]:
-        """Select synthesis targets, or every synthesis target for an empty list."""
+        """Run selected synthesis targets using the injected synthetizer."""
 
-        return self._select_targets(targets, self.synth_targets, "synthesis")
+        selected = self._select_targets(targets, self.synth_targets, "synthesis")
+        for target in selected:
+            self.synthetizer.run(target)
+        return selected
 
     def run_sim(self, targets: list[str]) -> list[SimTarget]:
-        """Select simulation targets, or every simulation target for an empty list."""
+        """Run selected simulation targets using the injected simulator."""
 
-        return self._select_targets(targets, self.sim_targets, "simulation")
+        selected = self._select_targets(targets, self.sim_targets, "simulation")
+        for target in selected:
+            self.simulator.run(target)
+        return selected
 
-    @classmethod
     def _parse_synth_targets(
-        cls, data: Mapping[str, Any]
+        self, data: Mapping[str, Any]
     ) -> dict[str, SynthTarget]:
-        raw_targets = cls._target_list(data, "synth_targets")
+        raw_targets = self._target_list(data, "synth_targets")
         targets: dict[str, SynthTarget] = {}
         for index, raw_target in enumerate(raw_targets):
-            target = cls._target_mapping(raw_target, "synth_targets", index)
-            name = cls._required_string(target, "name", "synth_targets", index)
-            cls._ensure_unique(name, targets, "synthesis")
+            target = self._target_mapping(raw_target, "synth_targets", index)
+            name = self._required_string(target, "name", "synth_targets", index)
+            self._ensure_unique(name, targets, "synthesis")
             targets[name] = SynthTarget(
                 name=name,
-                sources=cls._sources(target, "synth_targets", index),
-                top=cls._required_string(target, "top", "synth_targets", index),
-                cst=cls._required_string(target, "cst", "synth_targets", index),
+                sources=self._sources(target, "synth_targets", index),
+                top=self._required_string(target, "top", "synth_targets", index),
+                cst=self._required_string(target, "cst", "synth_targets", index),
+                project_path=self.project_path,
             )
         return targets
 
-    @classmethod
-    def _parse_sim_targets(cls, data: Mapping[str, Any]) -> dict[str, SimTarget]:
-        raw_targets = cls._target_list(data, "sim_targets")
+    def _parse_sim_targets(self, data: Mapping[str, Any]) -> dict[str, SimTarget]:
+        raw_targets = self._target_list(data, "sim_targets")
         targets: dict[str, SimTarget] = {}
         for index, raw_target in enumerate(raw_targets):
-            target = cls._target_mapping(raw_target, "sim_targets", index)
-            name = cls._required_string(target, "name", "sim_targets", index)
-            cls._ensure_unique(name, targets, "simulation")
+            target = self._target_mapping(raw_target, "sim_targets", index)
+            name = self._required_string(target, "name", "sim_targets", index)
+            self._ensure_unique(name, targets, "simulation")
             targets[name] = SimTarget(
                 name=name,
-                sources=cls._sources(target, "sim_targets", index),
+                sources=self._sources(target, "sim_targets", index),
+                project_path=self.project_path,
             )
         return targets
 

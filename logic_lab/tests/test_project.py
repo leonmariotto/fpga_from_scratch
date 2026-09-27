@@ -3,6 +3,9 @@ from pathlib import Path
 import pytest
 
 from logic_lab.project import LogicLabProject, LogicLabProjectError
+from logic_lab.simulator import Simulator
+from logic_lab.synthetizer import Synthetizer
+from logic_lab.targets import SimTarget, SynthTarget
 
 VALID_CONFIG = """\
 synth_targets:
@@ -23,9 +26,29 @@ sim_targets:
 """
 
 
+class RecordingSynthetizer(Synthetizer):
+    def __init__(self, oss_cad_path: Path) -> None:
+        super().__init__(oss_cad_path)
+        self.targets: list[SynthTarget] = []
+
+    def run(self, target: SynthTarget) -> None:
+        self.targets.append(target)
+
+
+class RecordingSimulator(Simulator):
+    def __init__(self, oss_cad_path: Path) -> None:
+        super().__init__(oss_cad_path)
+        self.targets: list[SimTarget] = []
+
+    def run(self, target: SimTarget) -> None:
+        self.targets.append(target)
+
+
 def make_project(tmp_path: Path, config: str = VALID_CONFIG) -> LogicLabProject:
     (tmp_path / "logiclab.yaml").write_text(config, encoding="utf-8")
-    return LogicLabProject(tmp_path)
+    return LogicLabProject(
+        tmp_path, RecordingSynthetizer(tmp_path), RecordingSimulator(tmp_path)
+    )
 
 
 def test_project_lists_and_selects_targets(tmp_path: Path) -> None:
