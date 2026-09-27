@@ -1,4 +1,4 @@
-name: make
+name: single_cycle
 
 on:
   pull_request:
