@@ -11,7 +11,9 @@ My Tang 138K contains :
 - 2x Winbond W9825G6KH-6: small SDR SRAM of 32KB each. Easier access than DDR3.
 - 2x SK hynix H5TQ4G63EFR-RDC: larger SRAM of 1GB each, DDR3-1866-class RDC speed grade
 
-## Toolchain
+## Tooling
+
+### Toolchain
 
 Fully open-source toolchain :
 - yosys: parse verilog.
@@ -33,6 +35,16 @@ sudo udevadm control --reload-rules
 sudo udevadm trigger
 ```
 Then, with "MCU" USB-C connected (not "FPGA"), the board should be detected by openFPGALoader: `openFPGALoader -b tangconsole --detect`.
+
+### LogicLab
+
+To orchestrate synthetization, simulation, and all tooling, this repo provide a 
+python-based tool *LogicLab*. Packaged with uv it can be installed easily. 
+LogicLab look for a logiclab.yml at the top of a project, it parse it to 
+know project simulation target and synthetization target.
+
+LogicLab need the environment variable `OSS_CAD_PATH` to be defined, as it use 
+OSS-CAD internaly.
 
 ## Course notes
 
