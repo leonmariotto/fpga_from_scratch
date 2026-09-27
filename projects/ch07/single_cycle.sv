@@ -146,8 +146,8 @@ endmodule
 
 // Used for instruction memory and data memory (2 separate instance)
 // N * M bits storages.
-// For 4096 words of 32 bits use N=4096 M=32
-module ram #(parameter N = 8, M = 32)
+// For 4096 words of 32 bits use N=12 M=32
+module ram #(parameter N = 12, M = 32)
 			(input logic 		clk,
 			 input logic 		we,
 			 input logic 		[N-1:0] addr,
@@ -210,8 +210,8 @@ endmodule
 
 module single_cycle (input logic reset,
 						input logic clk);
-    localparam int N_INST = 2048;
-    localparam int N_DATA = 2048;
+    localparam int N_INST = 12;
+    localparam int N_DATA = 12;
     localparam int M = 32;
 
 	logic pc_src; // Control value for choosing PC_next source
@@ -224,11 +224,13 @@ module single_cycle (input logic reset,
 	logic [31:0] instruction; // output of inst_mem
 	logic [31:0] write_data; // input of data_mem
 	logic [31:0] read_data; // output of data_mem
+	logic [1:0] result_src; // control value to select the result source.
 	logic [31:0] result; // final output, after mux selection
 	logic [31:0] src_a; // first input of ALU
 	logic [31:0] src_b; // second input of ALU
 	logic alu_zero; // output of ALU, zero flag
-	logic [2:0] alu_control; // control value for ALU operations
+	logic alu_src; // control value to set wether src_b come from imm or reg
+	logic [1:0] alu_control; // control value for ALU operations
 	logic [31:0] alu_result; // output of ALU
 	logic [1:0] imm_src; // control value for immediate extend computation
 	logic [31:0] imm_ext; // immediate value extended to 32bit signed
@@ -241,14 +243,14 @@ module single_cycle (input logic reset,
 	);
 	ram #(.N(N_INST), .M(M)) inst_mem (
 		.clk(clk),
-		.addr(pc),
+		.addr(pc[N_INST+1:2]),
 		.dout(instruction)
 	);
 	ram #(.N(N_DATA), .M(M)) data_mem (
 		.clk(clk),
 		.din(write_data),
 		.we(memory_write),
-		.addr(alu_result),
+		.addr(alu_result[N_DATA+1:2]),
 		.dout(read_data),
 	);
 	regfile regs (
