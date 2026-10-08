@@ -48,7 +48,9 @@ OSS-CAD internaly.
 
 ## Projects
 
-As part of the books `project/single_cycle_riscv` implement a single-cycle RV32I RISCV core.
+### Single-cycle RV32I
+
+As part of the books exercices, `project/single_cycle_riscv` implement a single-cycle RV32I RISCV core.
 It include testbench simulation and synthezis on Tang 138K board, with a small blinky.hex 
 program to assess functionality. Simulation and synthesis are run through **LogicLab** and 
 are enabled in CI.
